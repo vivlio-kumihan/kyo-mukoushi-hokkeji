@@ -1,0 +1,249 @@
+@use "../globals" as *;
+
+
+.mobile-menu {
+  position: fixed;
+  top: 60px;
+  right: 0;
+  width: 300px;
+  z-index: 1;
+  // transition: .3s;
+  // visibility: hidden;
+  // opacity: 0;
+
+  .logo {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    padding-left: 40px;
+
+    @include mq(md) {
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+
+    &__img {
+      width: 0.8em;
+    }
+
+    &__world {
+      color: $cTheme;
+    }
+  }  
+
+  &__main {
+    // 3Dアニメーション
+    // 領域の奥側から広がってくる3Dアニメーションをかける。
+    // そのための準備として親要素に仕込む属性。
+    // perspective => 奥行きを指定する。
+    perspective: 2000px;
+    transform-style: preserve-3d;
+  }
+
+  &__item {
+    transform: translate3d(0, 0, -1000px);
+    padding: 0 40px;
+    transition: transform 0.3s, opacity 0.2s;
+    opacity: 0;
+  }
+
+  &__link {
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+    padding: 0 10px;
+    & > .section-title {
+      color: $cBlack;
+    }
+  }
+
+  &__cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: .3);
+    // visibilityにはアニメーションが効かない。
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s;
+    cursor: pointer;
+  }
+
+  &__btn {
+    display: grid;
+    place-content: center;
+    row-gap: 10px;
+    width: 2rem;
+    height: 2rem;
+    background-color: unset;
+    border: unset;
+    border-radius: 10%;
+    @include mq(lg) {
+      display: none;
+    }
+
+    span {
+      width: 2rem;
+      height: 2px;
+      background-color: #999;
+      transition: .3s;
+    }
+  }
+}
+
+.menu-open {
+  & #container {
+    box-shadow: 0 8px 40px -10px rgba($color: #000000, $alpha: .8);
+    transform: translate(-300px, 60px);
+  }
+
+  & .mobile-menu {
+    // visibility: visible;
+    // opacity: 1;
+    &__item {
+      transform: none;
+      // padding: 0 40px;
+      // transition: transform 0.3s, opacity 0.2s;
+      opacity: 1;   
+      @for $idx from 1 through 3 {
+        &:nth-of-type(#{$idx}) {
+          transition-delay: $idx * 0.07s;
+        }
+      }
+    }
+
+    &__cover {
+      visibility: visible;
+      opacity: 1;
+      z-index: 100;
+    }
+  }
+
+  & .mobile-menu__btn > span {
+    &:nth-of-type(1) {
+      transform: translateY(12px) rotate(-225deg);
+    }
+
+    &:nth-of-type(2) {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    &:nth-of-type(3) {
+      transform: translateY(-12px) rotate(225deg);
+    }
+  }
+}
+
+// 教科書
+// $cMenuClose: $cBlack;
+// $cMenuOpen: $cBlack;
+
+// .mobile-menu {
+//   position: fixed;
+//   right: 0;
+//   top: 60px;
+//   width: 300px;
+
+//   & .logo {
+//     padding: 0 40px;
+//     font-size: 38px;
+//   }
+
+//   &__btn {
+//     background-color: unset;
+//     border: none;
+//     outline: none !important;
+//     cursor: pointer;
+
+//     & > span {
+//       background-color: $cMenuClose;
+//       width: 35px;
+//       height: 2px;
+//       display: block;
+//       margin-bottom: 9px;
+//       transition: transform 0.7s;
+
+//       &:last-child {
+//         margin-bottom: 0;
+//       }
+//     }
+//   }
+//   &__cover {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     background-color: rgba(0, 0, 0, 0.3);
+//     opacity: 0;
+//     visibility: hidden;
+//     transition: opacity 1s;
+//     cursor: pointer;
+//     z-index: 200;
+//   }
+//   &__main {
+//     padding: 0;
+//     perspective: 2000px;
+//     transform-style: preserve-3d;
+//   }
+//   &__item {
+//     list-style: none;
+//     display: block;
+//     transform: translate3d(0, 0, -1000px);
+//     padding: 0 40px;
+//     transition: transform 0.3s, opacity 0.2s;
+//     opacity: 0;
+//   }
+//   &__link {
+//     display: block;
+//     margin-top: 30px;
+//     color: $cBlack;
+//     text-decoration: none !important;
+//   }
+// }
+
+// .menu-open {
+//   & #container {
+//     transform: translate(-300px, 60px);
+//     box-shadow: 0 8px 40px -10px rgba(0, 0, 0, 0.8);
+//   }
+
+//   & .mobile-menu {
+//     &__cover {
+//       opacity: 1;
+//       visibility: visible;
+//     }
+//     &__item {
+//       transform: none;
+//       opacity: 1;
+
+//       @for $i from 1 through 5 {
+//         &:nth-child(#{$i}) {
+//           transition-delay: $i * 0.07s;
+//         }
+//       }
+//     }
+//     &__btn {
+//       & > span {
+//         background-color: $cMenuOpen;
+
+//         &:nth-child(1) {
+//           transition-delay: 70ms;
+//           transform: translateY(11px) rotate(135deg);
+//         }
+//         &:nth-child(2) {
+//           transition-delay: 0s;
+//           transform: translateX(-18px) scaleX(0);
+//         }
+//         &:nth-child(3) {
+//           transition-delay: 140ms;
+//           transform: translateY(-11px) rotate(-135deg);
+//         }
+//       }
+//     }
+//   }
+// }

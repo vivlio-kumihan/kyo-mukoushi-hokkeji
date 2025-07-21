@@ -1,0 +1,139 @@
+@use "../globals" as *;
+
+// 画像のスライドアニメーション用
+.cover-slide {
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $cBgGray;
+    opacity: 0;
+    z-index: 2;
+  }
+  &.inview {
+    &::after {
+      opacity: 1;
+      @include anime($name: kf-cover-slide,
+        $dur: 1.6s,
+        $tim: ease-in-out,
+        $fil: both
+      );
+    }
+  }
+}
+
+@keyframes kf-cover-slide {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  50.1% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+.img-zoom {
+  opacity: 0;
+  .inview & {
+    opacity: 1;
+    transition: transform .3s ease;
+    @include anime(
+      $name: kf-image-show,
+      $dur: 1.6s,
+      $tim: ease-in-out,
+      $fil: none);
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+@keyframes kf-image-show {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  50.1% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.hover-darken {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transition: background-color .3s ease;
+    pointer-events: none;
+    z-index: 1;
+    @include anime(
+      $name: kf-image-show,
+      $dur: 1.6s,
+      $tim: ease-in-out,
+      $fil: none);
+  }
+
+  &:hover::before {
+    background-color: rgba($color: #000000, $alpha: .4);
+  }
+}
+
+.bg-img-zoom {
+  width: 100%;
+  aspect-ratio: 2/1;
+  @include bg($image: '../images/villa-1.jpg');
+  @extend .img-zoom;
+  &.two {
+    background-image: url('../images/villa-2.jpg');
+  }
+  &.three {
+    background-image: url('../images/villa-3.jpg');
+  }
+  &.four {
+    background-image: url('../images/villa-4.jpg');
+  }
+  &.five {
+    background-image: url('../images/villa-5.jpg');
+  }
+  &.six {
+    background-image: url('../images/villa-6.jpg');
+  }
+}
+
+.img-bg50 {
+  // position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    padding-top: 60%;
+  }
+}

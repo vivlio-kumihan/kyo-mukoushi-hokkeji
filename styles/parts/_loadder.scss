@@ -1,0 +1,81 @@
+@use "../globals" as *;
+
+// Pace.jsの改造のコツ
+//        pace-inactive => pace-active
+//        pace-done => pace-running
+//    として関連するスタイルを観察して改造していく。
+//    今回は、教科書と全く違うスタイルを充てている。
+//    あとあとどうなることやら。。。
+// 元ネタは、https://codebyzach.github.io/pace/の中の『Loading Bar』
+
+// ローディング中は非表示、ローディングが終わった時に表示
+//    理屈としてはこれがシンプルでいいし、現状でアニメーションに問題はない。
+//    万が一のチラつき問題があるので、以下のように変更する。
+//    初期設定でcontainerを非表示というのは。。。だが。。。
+//          .pace-running > #container {
+//            opacity: 0;
+//          }
+//          #container {
+//            transition: opacity 1s;
+//          }
+.pace-done > #global-container {
+  transition: opacity 1s;
+  opacity: 1;
+}
+#global-container {
+  opacity: 0;
+}
+
+.pace {
+  & .pace-progress {
+    // position: relative;
+    display: grid;
+    place-content: center;
+    right: 0;
+    height: 80vh;
+    z-index: 0;
+    background: none;
+    // プログレス・バーに刻々と表示されるパーセント表示をセンターに固定する。
+    //    コンソールを確認　ここの値の変化でパーセント表示が動いている。
+    //    ライブラリのCSSを上書きするので『!important』必須。好き嫌いの問題じゃないよ。仕事仕事。
+    // transform: translate3d(0, 0, 0);
+    transform: none !important;
+    &::after {
+      // absoluteでコントロールできない。要素が消える？　意味不明。
+      position: fixed;
+      top: 45%;
+      left: 0;
+      width: 100%;
+      content: attr(data-progress-text);
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 100;
+      font-family: 'Helvetica Neue', 'Yo Gothic', 'Meiryo', sans-serif;
+    }
+  }
+  & .pace-progress-inner {
+    width: 40px;
+    height: 40px;
+    background-color: $cTheme;;
+    @include anime($name: sk-rotateplane,
+      $dur: 1.2s,
+      $itr: infinite,
+      $tim: ease-in-out
+    );
+  }
+  &.pace-inactive {
+    display: none;
+  }
+}
+
+@keyframes sk-rotateplane {
+  0% {
+    transform: perspective(100px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(100px) rotateX(-180deg) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(100px) rotateX(-180deg) rotateY(-180deg);
+  }
+}
