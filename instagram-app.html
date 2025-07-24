@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>クリックで続きを表示</title>
+    <style>
+      .instagram-app {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 20px;
+        font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+          "Noto Sans JP", sans-serif;
+        background-color: #f5f5f5;
+        min-height: 100vh;
+      }
+
+      /* logoを取り去る */
+      .embedsocial-hashtag .es-widget-branding {
+        display: none !important;
+      }
+
+      .embedsocial-hashtag .es-footer {
+        --e6ceee24: #000000 !important;
+        --53564b6e: 3px !important;
+        --54deca41: #ffffff !important;
+      }
+
+      /* 追加でアクティブページのスタイルも */
+      .embedsocial-hashtag .es-active-page {
+        color: #000000 !important;
+        border-color: #000000 !important;
+      }
+      
+      /* レスポンシブデザイン */
+      @media (max-width: 768px) {
+        .instagram-app {
+          padding: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="instagram-app">
+      <div
+        class="embedsocial-hashtag"
+        data-ref="56d410957974a4bd0879fdcd0bd8b483475e0ac5"
+      >
+        <a
+          class="feed-powered-by-es feed-powered-by-es-feed-img es-widget-branding"
+          href="https://embedsocial.jp/"
+          target="_blank"
+          title="my instagram"
+        >
+          <img
+            src="https://embedsocial.com/cdn/icon/embedsocial-logo.webp"
+            alt="EmbedSocial"
+          />
+          <div class="es-widget-branding-text">EmbedSocialで作成しました</div>
+        </a>
+      </div>
+      <script>
+        (function (d, s, id) {
+          var js;
+          if (d.getElementById(id)) {
+            return;
+          }
+          js = d.createElement(s);
+          js.id = id;
+          js.src = "https://embedsocial.com/cdn/ht.js";
+          d.getElementsByTagName("head")[0].appendChild(js);
+        })(document, "script", "EmbedSocialHashtagScript");
+      </script>
+    </div>
+  </body>
+</html>

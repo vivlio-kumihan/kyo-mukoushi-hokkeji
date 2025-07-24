@@ -116,7 +116,7 @@ $breakpoints: (
 // 背景
 @mixin bg( 
   // 背景色
-  $color: #fff,
+  $color: unset,
   // 配置するイメージまでのパス。
   $image: '',
   // イメージの配置位置（詳細のパラメータは下記）。
@@ -181,24 +181,6 @@ $breakpoints: (
 // text        => テキストをクリッピングマスクにする。
 //                ただし、テキストは『color: transparent』が必須。
 
-
-// position（デフォルトはセンターセンター設定）
-// @mixin positionAlt(
-//   $top: 50%,
-//   $left: 50%,
-//   $x: -50%, 
-//   $y: -50%
-//   ) {
-//   position: absolute;
-//   top: $top;
-//   left: $left;
-//   transform: translate($x, $y);
-// }
-
-
-// position: absolute
-//    引数なし => 左上に配置。
-//    引数『cc』 => センターセンターに配置。
 @mixin positionAlt(
   $top: 0,
   $left: 0,
@@ -219,3 +201,21 @@ $breakpoints: (
     transform: translate($x, $y);
   }
 }
+
+// position params（デフォルトはセンターセンター設定）
+// @mixin positionAlt(
+//   $top: 50%,
+//   $left: 50%,
+//   $x: -50%, 
+//   $y: -50%
+//   ) {
+//   position: absolute;
+//   top: $top;
+//   left: $left;
+//   transform: translate($x, $y);
+// }
+
+
+// position: absolute
+//    引数なし => 左上に配置。
+//    引数『cc』 => センターセンターに配置。

@@ -2,25 +2,25 @@
 @use "../parts/common" as *;
 
 #container {
-  position: relative;
-  background-color: $cWhite;
-  transition: .5s;
-  z-index: 50;
   @include bg(
+    $color: unset,
     $image: '../images/tex_japanese_paper.jpg',
     $size: auto,
-    $repeat: repeat); 
+    $repeat: repeat);   
+  position: relative;
+  transition: .5s;
+  z-index: 2;
 }
 
-// .sideを前面に出すためのローカル・スタッキング・コンテキストの親要素を仕掛ける。
-#main-content {
-  position: relative;
-  z-index: -1;
-  & main {
-    position: relative;
-    z-index: -1;
-  }
-}
+// // .sideを前面に出すためのローカル・スタッキング・コンテキストの親要素を仕掛ける。
+// #main-content {
+//   position: relative;
+//   z-index: -1;
+//   & main {
+//     position: relative;
+//     z-index: -1;
+//   }
+// }
 
 // footerから先に作る。
 // 内容がほぼ同じであれば、
@@ -33,6 +33,7 @@
   left: 0;
   width: 100%;
   height: $navHeight;
+  padding: 0 1em;
   z-index: 100;
   background-color: rgba($color: $cWhite, $alpha: 0.9);
   // 水平方向のオフセット 垂直方向のオフセット ぼかし距離 スプレッド距離 色
@@ -67,6 +68,7 @@
         font-weight: 700;
       }
       &__name-pre {
+        padding-top: 5px;
         text-align: justify;
         line-height: 1.2;
       }
@@ -75,33 +77,13 @@
       }
       &__name-name {
         @extend .fude-moji;
-        padding-bottom: 3px;
+        // padding-bottom: 0px;
         font-size: 34px;
         line-height: 1;
         color: $cTheme
       }
     }
   }  
-
-  // & .logo {
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   font-size: 35px;
-  //   @include mq(md) {
-  //     flex-direction: row;
-  //     justify-content: flex-start;
-  //     font-size: 42px;
-  //   }
-
-  //   &__img {
-  //     width: 0.8em;
-  //   }
-
-  //   &__world {
-  //     color: $cTheme;;
-  //   }
-  // }
 
   &__nav {
     @extend .flex;
@@ -135,79 +117,194 @@
   }
 }
 
-.area {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  @include bg(
-    $image: "../images/tex_japanese_paper.jpg",
-    $size: auto,
-    $repeat: repeat
-  );
-  &.second {
-    @include bg(
-      $image: "../images/tex_japanese_paper2.jpg",
-      $size: auto,
-      $repeat: repeat
-    );
-  }
-  &.third {
-    @include bg(
-      $image: "../images/tex_japanese_paper3.jpg",
-      $size: auto,
-      $repeat: repeat
-    );
-  }
-  &.fourth {
-    @include bg(
-      $image: "../images/tex_japanese_paper4.jpg",
-      $size: auto,
-      $repeat: repeat
-    );
-  }
-  &.fifth {
-    @include bg(
-      $image: "../images/tex_japanese_paper5.png",
-      $size: auto,
-      $repeat: repeat
-    );
-  }
-}
-
-h2 {
-  @extend.tume;  
-}
+// .area {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 100vw;
+//   height: 100vh;
+//   @include bg(
+//     $image: "../images/tex_japanese_paper.jpg",
+//     $size: auto,
+//     $repeat: repeat
+//   );
+//   &.second {
+//     @include bg(
+//       $image: "../images/tex_japanese_paper2.jpg",
+//       $size: auto,
+//       $repeat: repeat
+//     );
+//   }
+//   &.third {
+//     @include bg(
+//       $image: "../images/tex_japanese_paper3.jpg",
+//       $size: auto,
+//       $repeat: repeat
+//     );
+//   }
+//   &.fourth {
+//     @include bg(
+//       $image: "../images/tex_japanese_paper4.jpg",
+//       $size: auto,
+//       $repeat: repeat
+//     );
+//   }
+//   &.fifth {
+//     @include bg(
+//       $image: "../images/tex_japanese_paper5.png",
+//       $size: auto,
+//       $repeat: repeat
+//     );
+//   }
+// }
 
 section {
-  position: relative;
-  padding: 2rem;
+  @extend .content-width;
+  padding: 9rem 2rem 2rem;
+  // background-color: #fff;
   overflow: hidden;
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    z-index: -1;
-  }   
+  // &::after {
+  //   content: "";
+  //   position: absolute;
+  //   top: 0;
+  //   left: 50%;
+  //   transform: translateX(-50%);
+  //   width: 100%;
+  //   height: 100%;
+  //   background-color: #fff;
+  //   z-index: -1;
+  // } 
+  & .section-title {
+    @extend .font-lg;
+    position: relative;
+    margin: 0 auto;
+    padding: 0 20px;
+    border: 2px solid $cGold;
+    border-top: 0;
+    border-bottom: 0;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: .1em;
+    writing-mode: vertical-rl;  /* 縦書き（右から左） */
+    text-orientation: upright;  /* 文字を正立させる */
+    z-index: 10;
+    isolation: isolate; /* 新しいスタッキングコンテキストを作成 */
+    &::before {
+      @include bg(
+        $color: unset,
+        $image: '../images/title-back-pattern-01.png',
+        $size: cover,
+        $repeat: no-repeat); 
+      position: absolute;
+      bottom: -35%;
+      left: 50%;
+      transform: translateX(-50%);
+      content: "";
+      width: 250px;
+      height: 250px;
+      opacity: .4;
+      z-index: 9;
+      @include mq(md) {
+        width: 300px;
+        height: 300px;
+
+      }
+    }
+    &::after {
+      position: absolute;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      content: "";
+      width: 640px;
+      height: 640px;
+      background: url(../images/title-back-circle.svg);
+      opacity: .5;
+      z-index: 8;
+    }
+  }  
+  & p,
+  & .section-sub-title {
+    position: relative;
+    z-index: 10;
+  }
+  & .section-sub-title {
+    margin: 2em 0 .5em;
+    text-align: center;
+    letter-spacing: .15em;
+
+  }
 }
 
+
+.instagram-area {
+}
+
+.eternal-memorial {
+  &__contents {
+    & > .section-title::before {
+      bottom: -20%
+    }
+  }
+}
+
+.graveyard {
+  & .section-title::before {
+    @include bg ($image: '../images/title-back-pattern-02.png');
+    opacity: .2;
+  }
+}
+.memorial-service {
+  & .section-title::before {
+    @include bg ($image: '../images/title-back-pattern-03.png');
+  }
+}
+.about-us {
+  & .section-title::before {
+    @include bg ($image: '../images/title-back-pattern-04.png');
+    opacity: .2;
+  }
+}
+
+.access {
+  padding-top: 110px;
+  & .section-title::before {
+    @include bg ($image: '../images/title-back-pattern-05.png');
+    opacity: .3;
+  }
+}
+
+.access {
+  &__header {
+    @extend .content-width;
+    padding-top: 100px
+  }
+  &__contents {
+    & > .section-title::before {
+      bottom: -25%
+    }
+  } 
+  &__map {
+    margin-bottom: 3rem;
+  } 
+}
+
+
 .main-visual {
+  @include bg(
+    $image: '../images/bg.jpg',
+    $repeat: no-repeat
+  );  
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100vh;
+  padding-bottom: 30%;
   overflow: hidden;
-  // margin-top: 5em;
   & > .site-title {
     position: relative;
-    width: 65px;
+    width: 55px;
     @include mq(md) {
       width: 80px;
     }
@@ -215,12 +312,13 @@ section {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-48%, -45%);
-      width: 500px;
-      height: 500px;
+      transform: translate(-48%, -48%);
+      width: 400px;
+      height: 400px;
       opacity: .3;
       content: "";
       @include mq(md) {
+        transform: translate(-48%, -45%);
         opacity: .5;
       }
       @include bg(
@@ -231,297 +329,256 @@ section {
       );
     }
   }
-  @include bg(
-    $image: '../images/bg.jpg',
-    $size: cover,
-    $repeat: no-repeat); 
 }
 
-.instagram-area,
-.eternal-memorial,
-.memorial-service,
-.graveyard,
-.about-us,
-.goshuin {
-  @extend .content-width;
-  padding-top: 100px;
-  // &::after {
-  //   position: absolute;
-  //   top: -40%;
-  //   left: 50%;
-  //   transform: translateX(-50%);
-  //   content: "";
-  //   width: 640px;
-  //   height: 640px;
-  //   background: url(../../images/title-back-circle.svg);
-  //   opacity: .5;
-  //   z-index: -2;
-  // }  
-}
 
-.instagram-area {
-  padding: 25px;
-  @include mq(md) {
-    .instagram-area iframe {
-      height: 800px !important;
-    }
-  }
-}
+// .travel {
+//   @extend .content-width;
+//   @extend .mb-lg;
+//   // インナーの影が配置画像で隠れてしまう件、
+//   // 『ローカル・・・コンテキスト』を使って
+//   // z-indexの値で要素を管理する。
+//   // 1. 『ローカル・コンテキスト』の領域を確保する。
+//   //     position: relative;
+//   //     z-index: 0;
+//   // 2. 背面に送りたい要素に対して、
+//   //     position: relative;
+//   //     z-index: -1;
+//   // これだけ！！！　知らなかった。。。
+//   &__inner {
+//     // 『ローカル・コンテキスト』親要素をオン。
+//     position: relative;
+//     z-index: 0;
+//     @extend .flex;
+//     justify-content: space-between;
+//     padding: 15px;
+//     background-color: $cBgGray;
+//     @include mq(md) {
+//       padding: 50px;
+//     }
+//     @include mq(xl) {
+//       padding: 50px 150px;
+//     }
+//   }
+//   &__img {
+//     height: 300px;
+//     @extend .mb-sm;
+//     transition: box-shadow 1s ease 2.2s;
+//     // ローカル・コンテキストのやり方
+//     // // 現在、『ローカル・コンテキスト』をオン。
+//     // // // 影を擬似要素にする時は外す。
+//     // &::before {
+//     //   position: absolute;
+//     //   top: 0;
+//     //   left: 0;
+//     //   width: 100%;
+//     //   height: 100%;
+//     //   content: '';
+//     //   box-shadow: inset 0 0 30px $cBlack;
+//     //   opacity: 0;
+//     //   z-index: 3;
+//     // }
+//     // &.inview::before {
+//     //   // @include anime($name: opacity, $dur: 1.75s, $dly: 2.5s);
+//     // }
+//     @include mq(md) {
+//       flex-basis: 47%;
+//     }
+//     @include mq(lg) {
+//       height: 400px;
+//     }
+//     &.inview {
+//       box-shadow: inset 0 0 30px $cBlack;
+//     }
+//     & > img {
+//       opacity: 1;
+//       // 『ローカル・コンテキスト』子要素オン。
+//       position: relative;
+//       z-index: -1;
 
-.access {
-  &__header {
-    @extend .content-width;
-    padding-top: 100px
-  }
-}
+//       width: 100%;
+//       height: 100%;
+//       object-fit: cover;
+//     }
+//   }
 
-.travel {
-  @extend .content-width;
-  @extend .mb-lg;
-  // インナーの影が配置画像で隠れてしまう件、
-  // 『ローカル・・・コンテキスト』を使って
-  // z-indexの値で要素を管理する。
-  // 1. 『ローカル・コンテキスト』の領域を確保する。
-  //     position: relative;
-  //     z-index: 0;
-  // 2. 背面に送りたい要素に対して、
-  //     position: relative;
-  //     z-index: -1;
-  // これだけ！！！　知らなかった。。。
-  &__inner {
-    // 『ローカル・コンテキスト』親要素をオン。
-    position: relative;
-    z-index: 0;
-    @extend .flex;
-    justify-content: space-between;
-    padding: 15px;
-    background-color: $cBgGray;
-    @include mq(md) {
-      padding: 50px;
-    }
-    @include mq(xl) {
-      padding: 50px 150px;
-    }
-  }
-  &__img {
-    height: 300px;
-    @extend .mb-sm;
-    transition: box-shadow 1s ease 2.2s;
-    // ローカル・コンテキストのやり方
-    // // 現在、『ローカル・コンテキスト』をオン。
-    // // // 影を擬似要素にする時は外す。
-    // &::before {
-    //   position: absolute;
-    //   top: 0;
-    //   left: 0;
-    //   width: 100%;
-    //   height: 100%;
-    //   content: '';
-    //   box-shadow: inset 0 0 30px $cBlack;
-    //   opacity: 0;
-    //   z-index: 3;
-    // }
-    // &.inview::before {
-    //   // @include anime($name: opacity, $dur: 1.75s, $dly: 2.5s);
-    // }
-    @include mq(md) {
-      flex-basis: 47%;
-    }
-    @include mq(lg) {
-      height: 400px;
-    }
-    &.inview {
-      box-shadow: inset 0 0 30px $cBlack;
-    }
-    & > img {
-      opacity: 1;
-      // 『ローカル・コンテキスト』子要素オン。
-      position: relative;
-      z-index: -1;
+//   &__texts {
+//     @extend .pb-sm;
+//     @include mq(md) {
+//       display: flex;
+//       align-items: flex-end;
+//       flex-basis: 47%;
+//     }
+//     &.inview {
+//       & .travel__title::before {
+//         @include anime($name: scaleX, $dur: 0.8s, $dly: 1.6s);
+//       }
+//     }
+//   }
+//   &__title {
+//     position: relative;
+//     &::before {
+//       display: none;
+//       position: absolute;
+//       top: 50%;
+//       transform: translateY(-50%);
+//       left: -120px;
+//       content: "";
+//       width: 100px;
+//       height: 1px;
+//       background-color: $cBlack;
+//       transform: scaleX(0);
+//       z-index: 2;
+//       transform-origin: right;
+//       // これもそう。考え方！
+//       // 初期状態を作る => メディアクエリで切り替えたい=>スマホ表示はなし、
+//       // PCで有りとなったときにこう書けるか？
+//       @include mq(lg) {
+//         display: block;
+//       }
+//     }
+//   }
+//   &__description {
+//     @include mq(lg) {
+//       margin-bottom: 40px;
+//     }
+//   }
+// }
 
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
+// @keyframes scaleX {
+//   0% {
+//     transform: scaleX(0);
+//   }
+//   100% {
+//     transform: scaleX(1);
+//   }
+// }
 
-  &__texts {
-    @extend .pb-sm;
-    @include mq(md) {
-      display: flex;
-      align-items: flex-end;
-      flex-basis: 47%;
-    }
-    &.inview {
-      & .travel__title::before {
-        @include anime($name: scaleX, $dur: 0.8s, $dly: 1.6s);
-      }
-    }
-  }
-  &__title {
-    position: relative;
-    &::before {
-      display: none;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      left: -120px;
-      content: "";
-      width: 100px;
-      height: 1px;
-      background-color: $cBlack;
-      transform: scaleX(0);
-      z-index: 2;
-      transform-origin: right;
-      // これもそう。考え方！
-      // 初期状態を作る => メディアクエリで切り替えたい=>スマホ表示はなし、
-      // PCで有りとなったときにこう書けるか？
-      @include mq(lg) {
-        display: block;
-      }
-    }
-  }
-  &__description {
-    @include mq(lg) {
-      margin-bottom: 40px;
-    }
-  }
-}
+// @keyframes opacity {
+//   0% {
+//     opacity: 0;
+//   }
+//   100% {
+//     opacity: 1;
+//   }
+// }
 
-@keyframes scaleX {
-  0% {
-    transform: scaleX(0);
-  }
-  100% {
-    transform: scaleX(1);
-  }
-}
+// .houses {
+//   @extend .content-width;
+//   @extend .mb-lg;
+//   &__inner {
+//     @extend .flex;
+//   }
+//   &__item {
+//     @include mq(md) {
+//       // 『display: flex;』の場合、
+//       // 要素（この場合は画像）を包含する要素の横幅の指定は、
+//       // 『flex-basis』で設定する。
+//       @include mq(md) {
+//         flex-basis: 50%;
+//         margin-bottom: 20px;
+//       }
+//       @include mq(lg) {
+//         margin-bottom: 60px;
+//       }
+//     }
+//   }
+//   &__title {
+//     @extend .mb-sm;
+//     @extend .font-lr;
+//   }
+//   &__btn {
+//     text-align: center;
+//     // 『display: flex;』なので、
+//     // 『flex-basis』を100％としてセンタリングというわけ。
+//     // 考え方を変える。
+//     flex-basis: 100%;
+//   }
+// }
 
-@keyframes opacity {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+// .popular {
+//   // セクション全体の左右にマージンを設けたい。
+//   // 背景のアミは左右いっぱいまでにしたレイアウトを
+//   // 実現させるためのアイデア。
 
-.houses {
-  @extend .content-width;
-  @extend .mb-lg;
-  &__inner {
-    @extend .flex;
-  }
-  &__item {
-    @include mq(md) {
-      // 『display: flex;』の場合、
-      // 要素（この場合は画像）を包含する要素の横幅の指定は、
-      // 『flex-basis』で設定する。
-      @include mq(md) {
-        flex-basis: 50%;
-        margin-bottom: 20px;
-      }
-      @include mq(lg) {
-        margin-bottom: 60px;
-      }
-    }
-  }
-  &__title {
-    @extend .mb-sm;
-    @extend .font-lr;
-  }
-  &__btn {
-    text-align: center;
-    // 『display: flex;』なので、
-    // 『flex-basis』を100％としてセンタリングというわけ。
-    // 考え方を変える。
-    flex-basis: 100%;
-  }
-}
+//   // あえて、『__inner』要素を設けてその擬似要素へ
+//   // 色をつける作戦。
+//   // なお、上下自由な位置から末端までアミを広げるネタも
+//   // 入っている。CSS必見。
 
-.popular {
-  // セクション全体の左右にマージンを設けたい。
-  // 背景のアミは左右いっぱいまでにしたレイアウトを
-  // 実現させるためのアイデア。
-
-  // あえて、『__inner』要素を設けてその擬似要素へ
-  // 色をつける作戦。
-  // なお、上下自由な位置から末端までアミを広げるネタも
-  // 入っている。CSS必見。
-
-  // そしてそして、小見出しが外れることはよくある。
-  // その場合は小見出しにマージンを適用させる。
-  &__header {
-    @extend .content-width;
-  }
-  &__inner {
-    position: relative;
-    z-index: 2;
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 90%;
-      background-color: $cBgGray;
-    }
-  }
-  &__container {
-    // 背景画像のz-indexの前後の操作について、
-    // 思い込みを無くす。
-    // z-indexを使いたい『ためだけに』
-    // position: relative;
-    // を使っていい。
-    position: relative;
-    @extend .flex;
-    @extend .content-width;
-    z-index: 2;
-    @include mq(md) {
-      justify-content: space-between;
-    }
-  }
-  &__item {
-    // 要素（イメージなど）をflexでレイアウトしている時に、
-    // 間隔を調整したい時の要領。
-    @include mq(md) {
-      flex-basis: 47%;
-    }
-    @include mq(lg) {
-      flex-basis: 25%;
-    }
-    @include mq(xl) {
-      flex-basis: 23%;
-    }
-  }
-  &__img {
-    height: 150px;
-    margin-bottom: 5px;
-    @include mq(lg) {
-      height: 335px;
-    }
-    & > img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      // 画像の位置を変えることができるプロパティ
-      // object-position: top;
-    }
-  }
-  &__title {
-    @extend .mb-sm;
-    @extend .font-md;
-  }
-  &__btn {
-    // ここも大事、反対のことをやりがち。
-    // 上の『houses』と同じ記述をしている。
-    // それは構わない。
-    // 共通化より、修正のしやすさを優先しているから。
-    text-align: center;
-    flex-basis: 100%;
-    @extend .mb-lg;
-  }
-}
+//   // そしてそして、小見出しが外れることはよくある。
+//   // その場合は小見出しにマージンを適用させる。
+//   &__header {
+//     @extend .content-width;
+//   }
+//   &__inner {
+//     position: relative;
+//     z-index: 2;
+//     &::before {
+//       content: "";
+//       position: absolute;
+//       bottom: 0;
+//       left: 0;
+//       width: 100%;
+//       height: 90%;
+//       background-color: $cBgGray;
+//     }
+//   }
+//   &__container {
+//     // 背景画像のz-indexの前後の操作について、
+//     // 思い込みを無くす。
+//     // z-indexを使いたい『ためだけに』
+//     // position: relative;
+//     // を使っていい。
+//     position: relative;
+//     @extend .flex;
+//     @extend .content-width;
+//     z-index: 2;
+//     @include mq(md) {
+//       justify-content: space-between;
+//     }
+//   }
+//   &__item {
+//     // 要素（イメージなど）をflexでレイアウトしている時に、
+//     // 間隔を調整したい時の要領。
+//     @include mq(md) {
+//       flex-basis: 47%;
+//     }
+//     @include mq(lg) {
+//       flex-basis: 25%;
+//     }
+//     @include mq(xl) {
+//       flex-basis: 23%;
+//     }
+//   }
+//   &__img {
+//     height: 150px;
+//     margin-bottom: 5px;
+//     @include mq(lg) {
+//       height: 335px;
+//     }
+//     & > img {
+//       width: 100%;
+//       height: 100%;
+//       object-fit: cover;
+//       // 画像の位置を変えることができるプロパティ
+//       // object-position: top;
+//     }
+//   }
+//   &__title {
+//     @extend .mb-sm;
+//     @extend .font-md;
+//   }
+//   &__btn {
+//     // ここも大事、反対のことをやりがち。
+//     // 上の『houses』と同じ記述をしている。
+//     // それは構わない。
+//     // 共通化より、修正のしやすさを優先しているから。
+//     text-align: center;
+//     flex-basis: 100%;
+//     @extend .mb-lg;
+//   }
+// }
 
 // .main-contentに囲まれた、
 // .side.left, main, .side.right　となっている位置関係を
@@ -536,6 +593,7 @@ section {
   transition: all ease 0.5s;
   visibility: hidden;
   opacity: 0;
+  z-index: 10;
   @include mq(xl) {
     &.inview {
       visibility: visible;
@@ -670,3 +728,58 @@ section {
     }
   }
 }
+
+.instagram-app {
+  @extend .font-gothic;
+  position: relative;
+  padding: 0;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  @include mq(md) {
+    margin: 0 auto;
+    padding: 15px;
+    max-width: 1080px;
+  } 
+}
+
+/* logoを取り去る */
+.embedsocial-hashtag .es-widget-branding {
+  display: none !important;
+}
+
+.embedsocial-hashtag .es-footer {
+  --e6ceee24: #000000 !important;
+  --53564b6e: 3px !important;
+  --54deca41: #ffffff !important;
+}
+
+/* 追加でアクティブページのスタイルも */
+.embedsocial-hashtag .es-active-page {
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+
+
+
+
+
+// .instagram-area,
+// .eternal-memorial,
+// .memorial-service,
+// .graveyard,
+// .about-us,
+// .goshuin {
+//   padding-top: 100px;
+//   // &::after {
+//   //   position: absolute;
+//   //   top: -40%;
+//   //   left: 50%;
+//   //   transform: translateX(-50%);
+//   //   content: "";
+//   //   width: 640px;
+//   //   height: 640px;
+//   //   background: url(../images/title-back-circle.svg);
+//   //   opacity: .5;
+//   //   z-index: -2;
+//   // }  
+// }

@@ -10,7 +10,7 @@ body {
 
 
 // wght@200;500;900
-.font-gothic{
+.font-gothic {
   font-family: "Noto Sans JP", sans-serif;
   font-optical-sizing: auto;
   font-weight: 200;
@@ -131,13 +131,13 @@ a {
   }
 }
 
-.purple {
-  color: $cTheme;;
-}
-
 #main-content {
   position: relative;
   z-index: 0;
+}
+
+h2, h3 {
+  @extend.tume;  
 }
 
 // font
@@ -165,52 +165,3 @@ a {
     font-size: 36px;
   }
 }
-
-.section-title {
-  @extend .font-lg;
-  position: relative;
-  margin: 0 auto;
-  padding: 0 20px;
-  border: 2px solid $cGold;
-  border-top: 0;
-  border-bottom: 0;
-  font-weight: 700;
-  line-height: 1.3;
-  writing-mode: vertical-rl;  /* 縦書き（右から左） */
-  text-orientation: upright;  /* 文字を正立させる */
-  z-index: 100;
-  isolation: isolate; /* 新しいスタッキングコンテキストを作成 */
-  &::before {
-    @include bg(
-      $image: '../../images/title-back-pattern-01.png',
-      $size: cover,
-      $repeat: no-repeat); 
-    position: absolute;
-    top: -80%;
-    left: 50%;
-    transform: translateX(-50%);
-    content: "";
-    width: 300px;
-    height: 300px;
-    opacity: .4;
-    z-index: -1;
-  }
-  &::after {
-    position: absolute;
-    top: -40%;
-    left: 50%;
-    transform: translateX(-50%);
-    content: "";
-    width: 640px;
-    height: 640px;
-    background: url(../../images/title-back-circle.svg);
-    opacity: .5;
-    z-index: -2;
-  }
-}
-
-// .sub-title {
-//   @extend .font-sm;
-//   @extend .mb-sm;
-//   color: $cSubTitle;
-// }
