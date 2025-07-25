@@ -160,7 +160,7 @@
 
 section {
   @extend .content-width;
-  padding: 9rem 2rem 2rem;
+  padding: 11rem 2rem 2rem;
   // background-color: #fff;
   overflow: hidden;
   // &::after {
@@ -176,19 +176,23 @@ section {
   // } 
   & .section-title {
     @extend .font-lg;
+    display: flex;
+    justify-content: center;
     position: relative;
+    width: 100%;
     margin: 0 auto;
-    padding: 0 20px;
-    border: 2px solid $cGold;
-    border-top: 0;
-    border-bottom: 0;
-    font-weight: 700;
-    line-height: 1.3;
-    letter-spacing: .1em;
-    writing-mode: vertical-rl;  /* 縦書き（右から左） */
-    text-orientation: upright;  /* 文字を正立させる */
-    z-index: 10;
-    isolation: isolate; /* 新しいスタッキングコンテキストを作成 */
+    z-index: 1;
+    &__text {
+      padding: 0 20px;
+      border: 2px solid $cGold;
+      border-top: 0;
+      border-bottom: 0;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: .1em;
+      writing-mode: vertical-rl;  /* 縦書き（右から左） */
+      text-orientation: upright;  /* 文字を正立させる */
+    }    
     &::before {
       @include bg(
         $color: unset,
@@ -196,31 +200,30 @@ section {
         $size: cover,
         $repeat: no-repeat); 
       position: absolute;
-      bottom: -35%;
+      bottom: -50%;
       left: 50%;
       transform: translateX(-50%);
       content: "";
       width: 250px;
       height: 250px;
       opacity: .4;
-      z-index: 9;
+      z-index: -1;
       @include mq(md) {
         width: 300px;
         height: 300px;
-
       }
     }
     &::after {
       position: absolute;
-      top: -40%;
+      bottom: -555%;
       left: 50%;
       transform: translateX(-50%);
       content: "";
       width: 640px;
       height: 640px;
-      background: url(../images/title-back-circle.svg);
+      background: url(../images/title-back-circle-3px.png);
       opacity: .5;
-      z-index: 8;
+      z-index: -1;
     }
   }  
   & p,
@@ -267,10 +270,13 @@ section {
 }
 
 .access {
-  padding-top: 110px;
+  padding-top: 9rem;
   & .section-title::before {
     @include bg ($image: '../images/title-back-pattern-05.png');
     opacity: .3;
+  }
+  & .section-title::after {
+    bottom: -405%
   }
 }
 
@@ -281,7 +287,7 @@ section {
   }
   &__contents {
     & > .section-title::before {
-      bottom: -25%
+      bottom: -40%
     }
   } 
   &__map {
@@ -778,7 +784,7 @@ section {
 //   //   content: "";
 //   //   width: 640px;
 //   //   height: 640px;
-//   //   background: url(../images/title-back-circle.svg);
+//   //   background: url(../images/title-back-circle-3px.png);
 //   //   opacity: .5;
 //   //   z-index: -2;
 //   // }  

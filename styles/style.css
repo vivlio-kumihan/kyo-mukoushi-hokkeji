@@ -883,12 +883,18 @@ a {
 }
 
 section {
-  padding: 9rem 2rem 2rem;
+  padding: 11rem 2rem 2rem;
   overflow: hidden;
 }
 section .section-title {
+  display: flex;
+  justify-content: center;
   position: relative;
+  width: 100%;
   margin: 0 auto;
+  z-index: 1;
+}
+section .section-title__text {
   padding: 0 20px;
   border: 2px solid #D6C480;
   border-top: 0;
@@ -898,8 +904,6 @@ section .section-title {
   letter-spacing: 0.1em;
   writing-mode: vertical-rl; /* 縦書き（右から左） */
   text-orientation: upright; /* 文字を正立させる */
-  z-index: 10;
-  isolation: isolate; /* 新しいスタッキングコンテキストを作成 */
 }
 section .section-title::before {
   background-color: unset;
@@ -911,14 +915,14 @@ section .section-title::before {
   background-clip: border-box;
   color: inherit;
   position: absolute;
-  bottom: -35%;
+  bottom: -50%;
   left: 50%;
   transform: translateX(-50%);
   content: "";
   width: 250px;
   height: 250px;
   opacity: 0.4;
-  z-index: 9;
+  z-index: -1;
 }
 @media (min-width: 600px) {
   section .section-title::before {
@@ -928,15 +932,15 @@ section .section-title::before {
 }
 section .section-title::after {
   position: absolute;
-  top: -40%;
+  bottom: -555%;
   left: 50%;
   transform: translateX(-50%);
   content: "";
   width: 640px;
   height: 640px;
-  background: url(../images/title-back-circle.svg);
+  background: url(../images/title-back-circle-3px.png);
   opacity: 0.5;
-  z-index: 8;
+  z-index: -1;
 }
 section p, section .section-sub-title {
   position: relative;
@@ -988,7 +992,7 @@ section .section-sub-title {
 }
 
 .access {
-  padding-top: 110px;
+  padding-top: 9rem;
 }
 .access .section-title::before {
   background-color: unset;
@@ -1001,12 +1005,15 @@ section .section-sub-title {
   color: inherit;
   opacity: 0.3;
 }
+.access .section-title::after {
+  bottom: -405%;
+}
 
 .access__header {
   padding-top: 100px;
 }
 .access__contents > .section-title::before {
-  bottom: -25%;
+  bottom: -40%;
 }
 .access__map {
   margin-bottom: 3rem;
