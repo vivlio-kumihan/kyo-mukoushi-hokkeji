@@ -6,6 +6,7 @@ body {
   // 英語の書体なら『Kameron』にマッチ、日本語の書体は、2番目の『Noto Sans JP』にマッチする。
   // 順に探していく仕様。
   font-family: "Noto Serif JP", serif;
+  font-size: 100%;
 }
 
 
@@ -62,7 +63,6 @@ body {
   font-weight: 400;
   font-style: normal;
 }
-
 
 .tume {
   font-feature-settings: "palt" 1;
