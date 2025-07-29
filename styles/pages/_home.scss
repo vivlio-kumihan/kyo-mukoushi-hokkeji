@@ -19,7 +19,7 @@
     width: fit-content;
     margin: 0 auto;
     color: $cBlack;
-    font-size: 1.5em;
+    font-size: 1.75em;
     line-height: 1;
     z-index: 10;
     @include mq(md) {
@@ -34,6 +34,18 @@
       color: $cGrayMidium;
       cursor: pointer;
       transition: all .6s ease;
+    }
+  }
+}
+
+.access {
+  padding: 8rem 2rem .5rem;
+  & .temple-info {
+    margin: .75em 0;
+    text-align: center;
+    &__adress {
+      margin-top: .2em;
+      font-size: 15px;
     }
   }
 }
@@ -170,7 +182,7 @@
   }
   &__footer {
     @include positionAlt(
-      calc(100% - 250px), 
+      calc(100% - 125px), 
       50%, 
       -50%, 
       0%
@@ -335,6 +347,7 @@ section {
     }
     & > .section-sub-title {
       margin: 2em 0 0.5em;
+      letter-spacing: 0;
     }
   }
 }
@@ -360,6 +373,7 @@ section {
   position: relative;
   width: 100%;
   max-width: unset;
+  padding: calc(500px + 3em) 2em 3em;
   &::before {
     @include bg(
       $image: '../images/memorial-service_bg@0.25x.jpg',
@@ -375,8 +389,13 @@ section {
   }
   &__contents {
     @extend .content-width;
-    padding-top: calc(500px - 5em);
   }
+  & .section-title {
+    &__text {
+      display: block;
+      height: 3.5em;
+    }
+  }  
   & .section-title::before {
     @include bg ($image: '../images/title-back-pattern-03.png');
   }
@@ -385,11 +404,19 @@ section {
 .about-us {
   position: relative;
   width: 100%;
-  padding: 0;
-  max-width: unset;  
+  max-width: unset;
+  padding: calc(500px + 3em) 2em 3em; 
+  z-index: 0; 
   &__contents {
     @extend .content-width;
-    padding: 2em 2em 3em;  
+    position: relative;
+    z-index: 10;
+  }
+  & .section-title {
+    &__text {
+      display: block;
+      height: 3.5em;
+    }
   }
   & .section-title::before {
     @include bg ($image: '../images/title-back-pattern-04.png');
@@ -417,7 +444,7 @@ section {
   }  
   &__contents {
     @extend .content-width;
-    padding-top: calc(500px - 5em);   
+    padding-top: calc(500px - 2em);   
     & > p:first-of-type {
       margin-top: 2em;
     }
@@ -426,6 +453,12 @@ section {
       color: $cWhite;
     }
   }
+  & .section-title {
+    &__text {
+      display: block;
+      height: 3.5em;
+    }
+  }  
   & .section-title::before {
     @include bg($image: "../images/ji-mon_white.png");
     top: -220%;

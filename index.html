@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="./styles/style.css?v0.41">
+  <link rel="stylesheet" href="./styles/style.css?v1.3">
   <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js" defer></script>
   <script src="./scripts/libs/mobile-menu.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
@@ -25,7 +25,7 @@
   <script src="./scripts/libs/text-animation.js" defer></script>
   <script src="./scripts/libs/scroll.js" defer></script>
   <script src="./scripts/libs/open-close.js" defer></script>
-  <script src="./scripts/main.js?v0.41" defer></script>
+  <script src="./scripts/main.js?v1.3" defer></script>
 </head>
 
 <body>
@@ -93,7 +93,7 @@
               </div>              
             </section>
 
-            <section class="instagram-app">
+            <section id="instagram" class="instagram-app">
               <div
                 class="embedsocial-hashtag"
                 data-ref="56d410957974a4bd0879fdcd0bd8b483475e0ac5"
@@ -125,16 +125,15 @@
               </script>
             </section>
 
-            <section class="eternal-memorial">
+            <section id="eternal-memorial" class="eternal-memorial">
               <div class="eternal-memorial__contents">
                 <h2 class="section-title">
                   <span class="section-title__text">合&emsp;祀&emsp;墓<br />永代供養廟</span>
                 </h2>
                 <h3 class="section-sub-title">先祖代々ではないお墓という選択肢</h3>
                 <p>この合祀墓（ごうしぼ）は大きいひとつのお墓に、複数の方とご一緒に納骨されます。</p>
-                <p>先祖代々のお墓のかたちの様に変わらず、大切にされてきたものには、それだけの理由があります。</p>
-                <p>しかし、社会や家族のかたちが変わるように供養の形も変わっていくもので、この合祀墓はお墓のその先のことを、お寺にそっと「ゆだねる」「まかせる」という選択もあっていいと、ご用意したものです。</p>
-                <p>お参りは、法事や合同法要はもちろん、思い立ったときにはぜひ自由に足を運んでください。                </p>
+                <p>先祖代々のお墓のかたちの様に変わらず大切にされてきたものには、それだけの理由があります。しかし、社会や家族のかたちが変わるように供養の形も変わっていくもので、この合祀墓はお墓のその先のことを、お寺にそっと「ゆだねる」「まかせる」という選択もあっていいと、ご用意したものです。</p>
+                <p>お参りは、法事や合同法要はもちろん、思い立ったときにはぜひ自由に足を運んでください。</p>
               </div>
 
               <div class="next-btn" data-title="eternal-memorial">続きを見る...</div>
@@ -173,6 +172,7 @@
 
                   <h3 class="section-sub-title caution">注意事項</h3>
                   <ul class="caution__contents">
+                    <li>宗旨・宗派は問いません。</li>
                     <li>一度ご納骨されたご遺骨は、お返しできません。</li>
                     <li>納骨後の年間管理料などは不要です。</li>
                     <li>毎年6月に、合祀墓全体の合同法要を行います。</li>
@@ -182,7 +182,7 @@
               </div>
             </section>
 
-            <section class="graveyard">
+            <section id="graveyard" class="graveyard">
               <div class="graveyard__contents">
                 <h2 class="section-title">
                   <span class="section-title__text">墓&emsp;地</span>
@@ -203,7 +203,7 @@
                     <img src="./images/atari.png" alt="アタリの画像">
                   </div>
                 </div>
-
+                
                 <div class="inner-contents__explain">
                   <div class="section-sub-title">境内墓地</div>
                   <div>（お寺の敷地内にある墓）</div>
@@ -211,20 +211,28 @@
                     <div class="lead-title">一区画</div>
                     <div class="fee">
                       <div class="price"><span>50</span>万円</div>
-                      <div class="suppliment">（墓石代等は別途必要）</div>
+                      <div class="suppliment">（墓石代等は別途必要になります）</div>
                       <ul class="caution__contents">
-                        <li>当寺の檀家として年間の護持費（お寺の維持の為の会費）の納付が必要。</li>
+                        <li>当お寺の檀家として年間の護持費（お寺の維持の為の会費）の納付が必要。</li>
                       </ul>
                     </div> 
                   </div>
-                                  
+                  
+                  <div class="inner-contents__img-wrapper">
+                    <img src="./images/atari.png" alt="アタリの画像">
+                    <div class="inner-contents__img-wrapper-inner">
+                      <img src="./images/atari.png" alt="アタリの画像">
+                      <img src="./images/atari.png" alt="アタリの画像">
+                    </div>
+                  </div>
+
                   <div class="section-sub-title">吉備寺墓地</div>
                   <div>（お寺より徒歩5分ほどの上植野区墓地の一角）</div>
                   <div class="spec"> 
                     <div class="lead-title">一区画</div>
                     <div class="fee">
                       <div class="price"><span>35</span>万円</div>
-                      <div class="suppliment">（墓石代等は別途必要）</div>
+                      <div class="suppliment">（墓石代等は別途必要になります）</div>
                       <ul class="caution__contents">
                         <li>年間管理費（上植野区へ）1,200円</li>
                         <li>宗派は問わず</li>
@@ -235,8 +243,7 @@
               </div>                   
             </section>
 
-            
-            <section class="memorial-service">
+            <section id="memorial-service" class="memorial-service">
               <div class="memorial-service__contents">
                 <h2 class="section-title">
                   <span class="section-title__text">法&emsp;事<br />お参り</span>
@@ -244,15 +251,14 @@
                 <h3 class="section-sub-title">今、ふと思い立つ</h3>
                 <p>色々な事情で今、ふと思い立った時、法事やお参りのことを思うタイミングは人それぞれです。その「今」や「ふと」を大切にして頂きたいです。</p>
                 <p>葬儀や四十九日忌、一周忌、三回忌などのご先祖様の供養、一緒にお祈りしましょう。</p>
-                <p>ご自宅の仏壇やお墓の前、または当お寺の本堂など、ご希望の場所で都合に合わせて行えます</p>
+                <p>ご自宅の仏壇やお墓の前、または当お寺の本堂など、ご希望の場所で都合に合わせて行えます。</p>
                 <p>お仏壇や位牌の開眼、またはお墓じまい、お仏壇じまい、お位牌の供養などもお参りしますのでどうぞご相談ください。</p>
                 <h3 class="section-sub-title contact">問い合わせ先</h3>                
                 <a class="temple-info__tel" href="tel:075-931-0727">075-931-0727</a>
               </div>
             </section>
 
-            
-            <section class="about-us">
+            <section id="about-us" class="about-us">
               <div class="hero">
                 <div class="swiper">
                   <div class="swiper-wrapper">
@@ -294,19 +300,19 @@
               </div>
             </section>
 
-            <section class="goshuin">
+            <section id="goshuin" class="goshuin">
               <div class="goshuin__contents">
                 <h2 class="section-title">
                   <span class="section-title__text">御朱印</span>
                 </h2>
                 <p>日蓮宗では南無妙法蓮華経と書いた御朱印を御首題と呼びます。</p>
-                <p>直接書き、書置き、ともに対応いたします。</p>
+                <p>直接書き、書置き、共に対応いたします。</p>
                 <p>家族で対応している小さなお寺ですので、留守にしてご不便をおかけすることもございます。</p>
-                <p>お電話等でご連絡頂いてからお越し下さると幸いです。</p>
+                <p>お電話等でご連絡頂いてからお越しくださると幸いです。</p>
               </div>
             </section>
 
-            <section class="access">
+            <section id="access" class="access">
               <div class="access__contents">
                 <h2 class="section-title">
                   <span class="section-title__text">アクセス</span>
@@ -317,6 +323,10 @@
                 </p>
                 <p>お車でお越しの際は東側からお越しください。<br class="return-sm">境内に駐車して頂けます。</p>
                 <p>東側以外の道は狭くなっておりますので<br class="return-sm">お気をつけください。</p>
+                <div class="temple-info">
+                  <a class="temple-info__tel" href="tel:075-931-0727">075-931-0727</a>                
+                  <div class="temple-info__adress">〒617-0006 京都府向日市上植野町西小路38−1</div>
+                </div>
               </div>
             </section>
             <div class="access__map">
@@ -348,7 +358,7 @@
         </div>
         <div class="temple-info">
           <div class="temple-info__adress item">〒617-0006 京都府向日市上植野町西小路38−1</div>
-          <a class="temple-info__tel item" href="tel:075-931-0727">TEL 075-931-0727</a>
+          <a class="temple-info__tel item" href="tel:075-931-0727">075-931-0727</a>
           <div class="temple-info__copyright item">&copy;&nbsp;2025 koufuzan hokkeji_mukoshi</div>
         </div>
       </div>
@@ -403,7 +413,6 @@
     </nav>
   </div>
 </body>
-
 </html> 
 
 

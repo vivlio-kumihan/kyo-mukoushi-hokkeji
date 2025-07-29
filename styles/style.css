@@ -295,7 +295,14 @@
 }
 
 .hero {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 500px;
   overflow: hidden;
+  z-index: -1;
 }
 .hero__title {
   position: absolute;
@@ -761,7 +768,7 @@ a {
   width: fit-content;
   margin: 0 auto;
   color: #333;
-  font-size: 1.5em;
+  font-size: 1.75em;
   line-height: 1;
   z-index: 10;
 }
@@ -781,6 +788,18 @@ a {
   color: #666;
   cursor: pointer;
   transition: all 0.6s ease;
+}
+
+.access {
+  padding: 8rem 2rem 0.5rem;
+}
+.access .temple-info {
+  margin: 0.75em 0;
+  text-align: center;
+}
+.access .temple-info__adress {
+  margin-top: 0.2em;
+  font-size: 15px;
 }
 
 .header {
@@ -912,7 +931,7 @@ a {
 }
 .main-visual__footer {
   position: absolute;
-  top: calc(100% - 250px);
+  top: calc(100% - 125px);
   left: 50%;
   transform: translate(-50%, 0%);
   width: 20px;
@@ -1088,6 +1107,7 @@ section .section-sub-title.contact {
 }
 .eternal-memorial__contents > .section-sub-title {
   margin: 2em 0 0.5em;
+  letter-spacing: 0;
 }
 
 .graveyard .section-title::before {
@@ -1113,6 +1133,7 @@ section .section-sub-title.contact {
   position: relative;
   width: 100%;
   max-width: unset;
+  padding: calc(500px + 3em) 2em 3em;
 }
 .memorial-service::before {
   background-color: unset;
@@ -1131,8 +1152,9 @@ section .section-sub-title.contact {
   width: 100%;
   height: 500px;
 }
-.memorial-service__contents {
-  padding-top: calc(500px - 5em);
+.memorial-service .section-title__text {
+  display: block;
+  height: 3.5em;
 }
 .memorial-service .section-title::before {
   background-color: unset;
@@ -1148,11 +1170,17 @@ section .section-sub-title.contact {
 .about-us {
   position: relative;
   width: 100%;
-  padding: 0;
   max-width: unset;
+  padding: calc(500px + 3em) 2em 3em;
+  z-index: 0;
 }
 .about-us__contents {
-  padding: 2em 2em 3em;
+  position: relative;
+  z-index: 10;
+}
+.about-us .section-title__text {
+  display: block;
+  height: 3.5em;
 }
 .about-us .section-title::before {
   background-color: unset;
@@ -1190,13 +1218,17 @@ section .section-sub-title.contact {
   height: 500px;
 }
 .goshuin__contents {
-  padding-top: calc(500px - 5em);
+  padding-top: calc(500px - 2em);
 }
 .goshuin__contents > p:first-of-type {
   margin-top: 2em;
 }
 .goshuin__contents .section-title, .goshuin__contents p {
   color: white;
+}
+.goshuin .section-title__text {
+  display: block;
+  height: 3.5em;
 }
 .goshuin .section-title::before {
   background-color: unset;
