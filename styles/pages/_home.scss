@@ -12,6 +12,32 @@
   z-index: 2;
 }
 
+.temple-info {
+  &__tel {
+    display: block;
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    color: $cBlack;
+    font-size: 1.5em;
+    line-height: 1;
+    z-index: 10;
+    @include mq(md) {
+      font-size: 32px;
+    }
+    &::before {
+      @include fontAwesome("\f3cd", inherit, Free, 900) {
+        margin-right: .25em
+      };
+    }
+    &:hover {
+      color: $cGrayMidium;
+      cursor: pointer;
+      transition: all .6s ease;
+    }
+  }
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -46,29 +72,30 @@
     &__img {
       width: 3em;
     }
-    & .temple-info {
-      color: $cTitleLight;
-      &__name {
-        font-size: 13px;
-        font-weight: 700;
-      }
-      &__name-pre {
-        padding-top: 5px;
-        text-align: justify;
-        line-height: 1.2;
-      }
-      &__sub-name {
-        font-size: 15px;
-      }
-      &__name-name {
-        @extend .fude-moji;
-        // padding-bottom: 0px;
-        font-size: 34px;
-        line-height: 1;
-        color: $cTheme
-      }
-    }
   }  
+
+  .temple-info {
+    color: $cTitleLight;
+    &__name {
+      font-size: 13px;
+      font-weight: 700;
+    }
+    &__name-pre {
+      padding-top: 5px;
+      text-align: justify;
+      line-height: 1.2;
+    }
+    &__sub-name {
+      font-size: 15px;
+    }
+    &__name-name {
+      @extend .fude-moji;
+      // padding-bottom: 0px;
+      font-size: 34px;
+      line-height: 1;
+      color: $cTheme
+    }
+  }
 
   &__nav {
     @extend .flex;
@@ -109,6 +136,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   width: 100%;
   height: 100vh;
   padding-bottom: 30%;
@@ -140,7 +168,52 @@
       );
     }
   }
+  &__footer {
+    @include positionAlt(
+      calc(100% - 250px), 
+      50%, 
+      -50%, 
+      0%
+    );
+    width: 20px;
+    height: 82px;
+    color: $cBlack;
+    overflow: hidden;
+    z-index: 2;
+    @include mq(lg) {
+      @include positionAlt(
+        calc(100% - 160px), 
+        50%, 
+        -50%, 
+        0%
+      );
+    }
+  }
+  &__down-allow {
+    @include positionAlt(tl);
+    width: 7px;
+    @include anime (
+      $name: kf-hero-allow-move,
+      $dur: 2s,
+      $itr: infinite,
+      $tim: liner
+    )
+  }
+  &__scorll-text {
+    @include positionAlt(22px, -6px);
+    font-size: 0.9rem;
+    transform: rotate(90deg);
+  }
 }
+
+@keyframes kf-hero-allow-move {
+  0%, 50%, 100% {
+    transform: translateY(-10px);
+  }
+  30% {
+    transform: translateY(0);
+  }
+}  
 
 section {
   @extend .content-width;
@@ -208,13 +281,21 @@ section {
     }
   }  
   & .section-sub-title {
+    @extend .font-mincho__mid;
     margin: 2.5em 0 .5em;
     text-align: center;
-    letter-spacing: .1em;
+    font-size: 1.25em;
+    letter-spacing: .07em;
     color: $cTitle;
+    &.contact {
+      margin: 1.5em 0 .75em;
+      
+    }
+    @include mq(md) {
+      font-size: 24px;
+    }
   }
 }
-
 
 .instagram-app {
   @extend .font-gothic;
@@ -257,32 +338,107 @@ section {
     }
   }
 }
+
 .graveyard {
   & .section-title::before {
     @include bg ($image: '../images/title-back-pattern-02.png');
     opacity: .2;
   }
+  & .inner-contents {
+    & .caution__contents {
+      margin: .75em 0 1.5em;
+      padding: .5em 0;
+      & > li {
+        margin-top: 0;
+      }
+    }
+  }
+
 }
+
 .memorial-service {
+  position: relative;
+  width: 100%;
+  max-width: unset;
+  &::before {
+    @include bg(
+      $image: '../images/memorial-service_bg@0.25x.jpg',
+      $repeat: no-repeat
+    );
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "";
+    width: 100%;
+    height: 500px;
+  }
+  &__contents {
+    @extend .content-width;
+    padding-top: calc(500px - 5em);
+  }
   & .section-title::before {
     @include bg ($image: '../images/title-back-pattern-03.png');
   }
 }
+
 .about-us {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  max-width: unset;  
+  &__contents {
+    @extend .content-width;
+    padding: 2em 2em 3em;  
+  }
   & .section-title::before {
     @include bg ($image: '../images/title-back-pattern-04.png');
     opacity: .2;
   }
 }
+
 .goshuin {
+  position: relative;
+  width: 100%;
+  max-width: unset;
+  background-color: $cThemeMidium;
+  &::before {
+    @include bg(
+      $image: '../images/memorial-service_bg@0.25x.jpg',
+      $repeat: no-repeat
+    );
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    content: "";
+    width: 100%;
+    height: 500px;
+  }  
   &__contents {
+    @extend .content-width;
+    padding-top: calc(500px - 5em);   
     & > p:first-of-type {
-      margin-top: 3em;
+      margin-top: 2em;
+    }
+    & .section-title,
+    & p {
+      color: $cWhite;
     }
   }
+  & .section-title::before {
+    @include bg($image: "../images/ji-mon_white.png");
+    top: -220%;
+    width: 550px;
+    height: 550px;
+    opacity: .075;
+  }
+  & .section-title::after {
+    background-image: unset;
+  }
 }
+
 .access {
-  padding-top: 6rem;
   &__contents {
     & > p:first-of-type {
       margin-top: 3em;
@@ -297,6 +453,29 @@ section {
     bottom: -220%;
     @include mq(md) {
       bottom: -405%;
+    }
+  }
+  & p {
+    line-height: 1.5;
+    text-align: center; 
+    &.transportation {
+      position: relative;
+      margin-bottom: .5em;
+      font-family: "Noto Sans JP", sans-serif;
+      font-weight: 500;
+      color: $cBlack;
+      & > span {
+        position: absolute;
+        bottom: 2em;
+        right: 1em;
+        padding: 1em 1.25em;
+        line-height: 1.2;
+        text-align: center;
+        font-weight: 900;
+        border: 1px solid $cTheme;
+        border-radius: 50%;
+        background-color: rgba($cWhite, .3);
+      }
     }
   }
   &__map {
@@ -330,7 +509,116 @@ section {
   line-height: 1;
   font-weight: 900;
   color: $cWhite;
-  background-color: $cThemeMiddium;
+  background-color: $cThemeMidium;
+}
+
+section .inner-contents {
+  display: flex;
+  flex-direction: column;
+  max-height: 0;
+  font-size: 14px;
+  text-align: center;
+  visibility: hidden;  
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all .6s ease-in-out;
+  &.show {
+    max-height: 1500px;
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  &.hide {
+    max-height: 0;
+    visibility: hidden;  
+    opacity: 0;
+    transform: translateY(-10px)
+  }  
+  & .section-sub-title {
+    @extend .font-mincho__bld;
+    margin: 1.5em 0 0;
+    letter-spacing: .25em;
+    &::before {
+      content: "【";
+    }
+    &::after {
+      content: "】";
+    }
+  }
+  & .spec {
+    margin: 1.5em 0 .5em;
+    & .price {
+      @extend .font-mincho__mid;
+      font-size: 1.2em;
+      line-height: 1;
+      @include mq(md) {
+        font-size: 20px;
+      }
+      & > span {
+        font-size: 1.5em;
+        @include mq(md) {
+          font-size: 32px;
+        }
+      }
+    }
+  }
+  & .lead-title {
+    @extend .font-gothic;
+    margin: 0 0 .75em;
+    padding: 2.5px 0;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1;
+    font-weight: 900;
+    color: $cTitleLight;
+    border: 1px solid $cThemeMidium;
+  }
+  & .price {
+    margin-bottom: .25em;
+  }
+  & .caution {
+    margin: 1.5em 0 .5em;
+    &__contents {
+      padding: 1em 0;
+      text-align: justify;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.5;
+      color: $cBlack;
+      border-radius: .5em;
+      background-color: rgba($cYellow, 0.4);
+      & > li {
+        margin-top: .5em;
+        padding: 0 1em 0 2em;
+        text-indent: -1em;
+        &::before {
+          content: "●";
+          color: $cTheme;
+        }
+      }
+    }
+  }
+  &__img-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    margin-top: 1em;
+    & > img {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+    }
+  }
+  &__img-wrapper-inner {
+    display: flex;
+    flex-direction: row;
+    gap: .5em;
+    & > img {
+      width: calc((100% - .5em) / 2);
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+  }
 }
 
 // .main-contentに囲まれた、
@@ -408,6 +696,7 @@ section {
   font-size: 15px;
   color: $cWhite;
   background-color: $cThemeDark;
+
   & .logo {
     display: flex;
     justify-content: center;
@@ -416,30 +705,31 @@ section {
     &__img {
       width: 4.2em;
     }
-    & .temple-info {
-      &__name {
-        font-size: 15px;
-        font-weight: 700;
-      }
-      &__name-pre {
-        text-align: justify;
-        line-height: 1.2;
-      }
-      &__sub-name {
-        font-size: 18px;
-      }
-      &__name-name {
-        @extend .fude-moji;
-        padding-bottom: 6px;
-        font-size: 42px;
-        line-height: 1;
-      }
-    }
   }
-
-  .temple-info {
+  
+  & .temple-info {
+    &__name {
+      font-size: 15px;
+      font-weight: 700;
+    }
+    &__name-pre {
+      text-align: justify;
+      line-height: 1.2;
+    }
+    &__sub-name {
+      font-size: 18px;
+    }
+    &__name-name {
+      @extend .fude-moji;
+      padding-bottom: 6px;
+      font-size: 42px;
+      line-height: 1;
+    }
     &__tel {
+      display: inline-block;
+      margin: .25em 0 .25em auto;
       font-size: 24px;
+      color: $cWhite;
     }
     &:nth-of-type(2) {
       margin-top: .5em
@@ -571,7 +861,7 @@ section {
 //     @extend .flex;
 //     justify-content: space-between;
 //     padding: 15px;
-//     background-color: $cBgGray;
+//     background-color: $cGrayLight;
 //     @include mq(md) {
 //       padding: 50px;
 //     }
@@ -740,7 +1030,7 @@ section {
 //       left: 0;
 //       width: 100%;
 //       height: 90%;
-//       background-color: $cBgGray;
+//       background-color: $cGrayLight;
 //     }
 //   }
 //   &__container {

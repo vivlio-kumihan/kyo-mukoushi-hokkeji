@@ -9,7 +9,6 @@ body {
   font-size: 100%;
 }
 
-
 // wght@200;500;900
 .font-gothic {
   font-family: "Noto Sans JP", sans-serif;
@@ -30,19 +29,11 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  &__mid {
+    font-weight: 700;
+  }
   &__bld {
     font-weight: 900;
-  }  
-}
-
-// wght@300;500;700
-.font-mincho {
-  font-family: "Noto Serif JP", serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  &__bld {
-    font-weight: 700;
   }  
 }
 
@@ -66,6 +57,13 @@ body {
 
 .tume {
   font-feature-settings: "palt" 1;
+}
+
+.return-sm {
+  display: block;
+  @include mq(md) {
+    display: none;
+  }
 }
 
 .h-one-hide {

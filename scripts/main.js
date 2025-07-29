@@ -1,18 +1,9 @@
-// 現在では、『defer』をつける。
-// document.addEventListener('DOMContentLoaded', function() {
-//   new Main;
-//   // // 確かに使うことはないわ。
-//   // const main = new Main;
-//   // main.destroy();
-// });
-
-// まずは、mainクラスを生成させる。
 class Main {
   constructor() {
+    this.openClose = new OpenClose();
+
     // トリガーを初期化する。
     // ここで定義するということは、bindの対象だということ。
-
-    
     this.header = document.querySelector(".header");
     
     // テキスト・アニメーション用の小見出しを収集してアニメーション用にインスタンス化する。
@@ -27,9 +18,6 @@ class Main {
 
     this.asides = document.querySelectorAll('.side');
 
-    // "new MobileMenu();"と"this._scrollInit();"を呼ぶ。
-    // 『this._observers = [];』より下に書かないとエラーになる。
-    // 習慣として、このプライベート関数は最下位に書くことにする。
     this._init();
   }
 

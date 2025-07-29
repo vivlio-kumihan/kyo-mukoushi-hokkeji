@@ -219,3 +219,21 @@ $breakpoints: (
 // position: absolute
 //    引数なし => 左上に配置。
 //    引数『cc』 => センターセンターに配置。
+
+@mixin fontAwesome($unicode, $fontSize: inherit, $fontFamily: Free, $fontWeight: 900) {
+  content: $unicode;
+  font-size: $fontSize;
+  font-family: "Font Awesome 6 " + $fontFamily;
+  font-weight: $fontWeight;
+  @content;
+}
+
+// // 電話番号のスタイルに適用する例
+// .temple-info__tel {
+//   &::before {
+//     @include fontAwesome("\f095", inherit, Free, 900) {
+//       margin-right: 8px;
+//       color: #4a90e2;
+//     };
+//   }
+// }

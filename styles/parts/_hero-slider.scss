@@ -44,11 +44,8 @@
 }
 
 .hero {
-  padding-top: $navHeight;
   overflow: hidden;
-  margin-bottom: 80px;
   @include mq(lg) {
-    margin-bottom: 120px;
   }
 
   &__title {
@@ -58,50 +55,5 @@
     opacity: 0;
     transition: opacity 6s ease, transform 1s ease;
     z-index: 2;
-  }
-  &__footer {
-    @include positionAlt(
-      calc(100% - 110px), 
-      50%, 
-      -50%, 
-      0%
-    );
-    width: 20px;
-    height: 82px;
-    color: #fff;
-    overflow: hidden;
-    z-index: 2;
-    @include mq(lg) {
-      @include positionAlt(
-        calc(100% - 160px), 
-        50%, 
-        -50%, 
-        0%
-      );
-    }
-  }
-  &__down-allow {
-    @include positionAlt(tl);
-    width: 7px;
-    @include anime (
-      $name: kf-hero-allow-move,
-      $dur: 2s,
-      $itr: infinite,
-      $tim: liner
-    )
-  }
-  &__scorll-text {
-    @include positionAlt(22px, -6px);
-    font-size: 0.9rem;
-    transform: rotate(90deg);
-  }
-}
-
-@keyframes kf-hero-allow-move {
-  0%, 50%, 100% {
-    transform: translateY(-10px);
-  }
-  30% {
-    transform: translateY(0);
   }
 }

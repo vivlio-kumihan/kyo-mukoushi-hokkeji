@@ -6,16 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="京都 乙訓（向日市・長岡京市・大山崎）にある広布山法華寺。総本山を山梨県身延の久遠寺（くおんじ）とし、南無妙法蓮華経（なむみょうほうれんげきょう）とお唱えする日蓮宗のお寺です。">
   <title>京都 乙訓（向日市・長岡京市・大山崎）法華寺 | 広布山 法華寺 公式サイト</title>
+  <link rel="stylesheet" href="./styles/vendors/css-reset.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@200;500;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@200;400;700;900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles/vendors/css-reset.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace-theme-default.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="./styles/style.css?v0.1">
+  <link rel="stylesheet" href="./styles/style.css?v0.41">
   <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js" defer></script>
   <script src="./scripts/libs/mobile-menu.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
@@ -23,7 +24,8 @@
   <script src="./scripts/vendors/gsap.min.js" defer></script>
   <script src="./scripts/libs/text-animation.js" defer></script>
   <script src="./scripts/libs/scroll.js" defer></script>
-  <script src="./scripts/main.js?v0.1" defer></script>
+  <script src="./scripts/libs/open-close.js" defer></script>
+  <script src="./scripts/main.js?v0.41" defer></script>
 </head>
 
 <body>
@@ -71,8 +73,6 @@
       </div>
 
       <div id="content">
-
-
         <div id="main-content">
 
           <aside class="side left">
@@ -87,6 +87,10 @@
               <div class="site-title">
                 <img src="./images/img_title@0.5x.png" alt="ほっけじ">
               </div>
+              <div class="main-visual__footer">
+                <img class="main-visual__down-allow" src="./images/arrow.svg" alt="">
+                <span class="main-visual__scorll-text">scroll</span>
+              </div>              
             </section>
 
             <section class="instagram-app">
@@ -132,32 +136,50 @@
                 <p>しかし、社会や家族のかたちが変わるように供養の形も変わっていくもので、この合祀墓はお墓のその先のことを、お寺にそっと「ゆだねる」「まかせる」という選択もあっていいと、ご用意したものです。</p>
                 <p>お参りは、法事や合同法要はもちろん、思い立ったときにはぜひ自由に足を運んでください。                </p>
               </div>
-              <div class="next-btn" data-title="first">
-                続きはこちら
+
+              <div class="next-btn" data-title="eternal-memorial">続きを見る...</div>
+
+              <div class="inner-contents" data-title="eternal-memorial">
+                <div class="inner-contents__img-wrapper">
+                  <img src="./images/atari.png" alt="アタリの画像">
+                  <div class="inner-contents__img-wrapper-inner">
+                    <img src="./images/atari.png" alt="アタリの画像">
+                    <img src="./images/atari.png" alt="アタリの画像">
+                  </div>
+                </div>                
+                <div class="inner-contents__explain">
+                  <h3 class="section-sub-title">費用について</h3>
+                  <div class="spec">
+                    <div class="lead-title">一霊位</div>
+                    <div class="fee">
+                      <div class="price"><span>30</span>万円</div>
+                      <div class="suppliment">（本堂での法要、納骨の儀を含みます）</div>
+                    </div>
+                  </div>
+                  <div class="spec">
+                    <div class="lead-title">二霊位以上（夫婦・先祖代々など）</div>
+                    <div class="fee">
+                      <div class="price"><span>50</span>万円以上</div>
+                      <div class="suppliment">（本堂での法要、納骨の儀を含みます）</div>
+                    </div>
+                  </div>
+                  <div class="spec">
+                    <div class="lead-title">戒名板</div>
+                    <div class="fee">
+                      <div class="price">約<span>2</span>万円</div>
+                      <div class="suppliment">（彫刻・据付代含む）<br />※設置は任意です。希望されない場合は不要です。</div>
+                    </div>
+                  </div>
+
+                  <h3 class="section-sub-title caution">注意事項</h3>
+                  <ul class="caution__contents">
+                    <li>一度ご納骨されたご遺骨は、お返しできません。</li>
+                    <li>納骨後の年間管理料などは不要です。</li>
+                    <li>毎年6月に、合祀墓全体の合同法要を行います。</li>
+                    <li>年回忌（3回忌・7回忌など）の時期には、お知らせのハガキをお送りします。</li>
+                  </ul>
+                </div>
               </div>
-              <div class="inner-contents" data-title="first">
-                <h4>費用について</h4>
-                一霊位
-                30万円
-                （本堂での法要、納骨の儀を含みます）
-  
-                二霊位以上
-                （夫婦・先祖代々など）
-                50万円以上
-  
-                戒名板
-                約2万円
-                （彫刻・据付代含む）
-                ※設置は任意です。希望されない場合は不要です。
-                
-                <h4>注意事項</h4>
-                <ul>
-                  <li>一度ご納骨されたご遺骨は、お返しできません。</li>
-                  <li>納骨後の年間管理料などは不要です。</li>
-                  <li>毎年6月に、合祀墓全体の合同法要を行います。</li>
-                  <li>年回忌（3回忌・7回忌など）の時期には、お知らせのハガキをお送りします。</li>
-                </ul>
-              </div>                         
             </section>
 
             <section class="graveyard">
@@ -169,31 +191,51 @@
                 <p>永代供養や合祀墓などの多様なお墓のかたちも広まりつつありますが、こちらはご家族やご親族の皆さまで、代々大切にしていく伝統的なお墓です。</p>
                 <p>代々同じお墓に眠るかたちだからこそ、お参りするとそこに「祖父や祖母、みんながいる」という感覚が自然と生まれていきます。</p>
                 <p>また、代々ひとつのお墓を守っていくという点では、長い目で見た際に、ご負担を抑えることにつながる場合がございます。</p>
-                <p>昔ながらお墓だからこその、変わらぬ安心感は今も大切にされ続けています。                  </p>
-              <div class="next-btn" data-title="first">
-                続きはこちら
-              </div>
-              <div class="inner-contents" data-title="first">
-                境内墓地
-                一区画
-                50万円
-                （墓石代等は別途必要になります）
-  
-                お寺の敷地内にある墓
-                当寺の檀家として年間の護持費（お寺の維持の為の会費）の納付が必要。
-  
-                吉備寺墓地
-                一区画
-                35万円
-                （墓石代等は別途必要になります）
-                お寺より徒歩5分ほどの上植野区墓地の一角
-  
-                年間管理費（上植野区へ）
-                1,200円
-                宗派は問わず
+                <p>昔ながらお墓だからこその、変わらぬ安心感は今も大切にされ続けています。</p>
+
+              <div class="next-btn" data-title="graveyard">続きを見る...</div>
+
+              <div class="inner-contents" data-title="graveyard">
+                <div class="inner-contents__img-wrapper">
+                  <img src="./images/atari.png" alt="アタリの画像">
+                  <div class="inner-contents__img-wrapper-inner">
+                    <img src="./images/atari.png" alt="アタリの画像">
+                    <img src="./images/atari.png" alt="アタリの画像">
+                  </div>
+                </div>
+
+                <div class="inner-contents__explain">
+                  <div class="section-sub-title">境内墓地</div>
+                  <div>（お寺の敷地内にある墓）</div>
+                  <div class="spec"> 
+                    <div class="lead-title">一区画</div>
+                    <div class="fee">
+                      <div class="price"><span>50</span>万円</div>
+                      <div class="suppliment">（墓石代等は別途必要）</div>
+                      <ul class="caution__contents">
+                        <li>当寺の檀家として年間の護持費（お寺の維持の為の会費）の納付が必要。</li>
+                      </ul>
+                    </div> 
+                  </div>
+                                  
+                  <div class="section-sub-title">吉備寺墓地</div>
+                  <div>（お寺より徒歩5分ほどの上植野区墓地の一角）</div>
+                  <div class="spec"> 
+                    <div class="lead-title">一区画</div>
+                    <div class="fee">
+                      <div class="price"><span>35</span>万円</div>
+                      <div class="suppliment">（墓石代等は別途必要）</div>
+                      <ul class="caution__contents">
+                        <li>年間管理費（上植野区へ）1,200円</li>
+                        <li>宗派は問わず</li>
+                      </ul>
+                    </div>                  
+                  </div>
+                </div>
               </div>                   
             </section>
 
+            
             <section class="memorial-service">
               <div class="memorial-service__contents">
                 <h2 class="section-title">
@@ -204,13 +246,43 @@
                 <p>葬儀や四十九日忌、一周忌、三回忌などのご先祖様の供養、一緒にお祈りしましょう。</p>
                 <p>ご自宅の仏壇やお墓の前、または当お寺の本堂など、ご希望の場所で都合に合わせて行えます</p>
                 <p>お仏壇や位牌の開眼、またはお墓じまい、お仏壇じまい、お位牌の供養などもお参りしますのでどうぞご相談ください。</p>
-                <div class="info-tel">
-                  問い合わせ先&emsp;075-931-0727
-                </div>
+                <h3 class="section-sub-title contact">問い合わせ先</h3>                
+                <a class="temple-info__tel" href="tel:075-931-0727">075-931-0727</a>
               </div>
             </section>
 
+            
             <section class="about-us">
+              <div class="hero">
+                <div class="swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="hero__title">Enjoy Rich</div>
+                      <img src="./images/image-1.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="hero__title">Fantascitc</div>
+                      <img src="./images/image-2.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="hero__title">Experience</div>
+                      <img src="./images/image-3.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="hero__title">Enjoy Rich</div>
+                      <img src="./images/image-1.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="hero__title">Fantascitc</div>
+                      <img src="./images/image-2.jpg" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="hero__title">Experience</div>
+                      <img src="./images/image-3.jpg" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>  
               <div class="about-us__contents">
                 <h2 class="section-title">
                   <span class="section-title__text">お&emsp;寺</span>
@@ -239,9 +311,12 @@
                 <h2 class="section-title">
                   <span class="section-title__text">アクセス</span>
                 </h2>
-                <p>最寄り駅&emsp;阪急電車&emsp;京都線&emsp;西向日駅</p>
-                <p>お車でお越しの際は東側からお越しください。境内に駐車して頂けます。</p>
-                <p>東側以外の道は狭くなっておりますのでお気をつけください。</p>
+                <p class="transportation">
+                  【最寄り駅】阪急電車（京都線）西向日駅
+                  <span>徒歩<br />5分</span>
+                </p>
+                <p>お車でお越しの際は東側からお越しください。<br class="return-sm">境内に駐車して頂けます。</p>
+                <p>東側以外の道は狭くなっておりますので<br class="return-sm">お気をつけください。</p>
               </div>
             </section>
             <div class="access__map">
@@ -269,13 +344,11 @@
               </div>
             </div>
           </div>
-          <div class="temple-info__name-name">
-            法華寺
-          </div>
+          <div class="temple-info__name-name">法華寺</div>
         </div>
         <div class="temple-info">
           <div class="temple-info__adress item">〒617-0006 京都府向日市上植野町西小路38−1</div>
-          <div class="temple-info__tel item">TEL 075-931-0727</div>
+          <a class="temple-info__tel item" href="tel:075-931-0727">TEL 075-931-0727</a>
           <div class="temple-info__copyright item">&copy;&nbsp;2025 koufuzan hokkeji_mukoshi</div>
         </div>
       </div>
@@ -342,40 +415,7 @@
   お墓に刻まれた名前の一つひとつに、笑顔や思い出、そして未来への願いが込められています。お参りのたびに、故人が歩んだ道のりに思いを馳せ、今を生きる私たちの歩むべき道を見つめ直すことができるでしょう。家族の歴史を大切に受け継ぎ、次の世代へとバトンを渡していく。そのような想いを込めて、一区画一区画を心を込めて管理させていただいております。
 -->
 
-        <!-- <div class="hero">
-          <div class="swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="hero__title">Enjoy Rich</div>
-                <img src="./images/image-1.jpg" alt="">
-              </div>
-              <div class="swiper-slide">
-                <div class="hero__title">Fantascitc</div>
-                <img src="./images/image-2.jpg" alt="">
-              </div>
-              <div class="swiper-slide">
-                <div class="hero__title">Experience</div>
-                <img src="./images/image-3.jpg" alt="">
-              </div>
-              <div class="swiper-slide">
-                <div class="hero__title">Enjoy Rich</div>
-                <img src="./images/image-1.jpg" alt="">
-              </div>
-              <div class="swiper-slide">
-                <div class="hero__title">Fantascitc</div>
-                <img src="./images/image-2.jpg" alt="">
-              </div>
-              <div class="swiper-slide">
-                <div class="hero__title">Experience</div>
-                <img src="./images/image-3.jpg" alt="">
-              </div>
-            </div>
-            <div class="hero__footer">
-              <img class="hero__down-allow" src="./images/arrow.svg" alt="">
-              <span class="hero__scorll-text">scroll</span>
-            </div>
-          </div>
-        </div> -->
+
 
             <!-- <section class="travel">
               <div class="travel__inner">

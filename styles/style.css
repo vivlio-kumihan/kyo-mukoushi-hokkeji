@@ -295,14 +295,7 @@
 }
 
 .hero {
-  padding-top: 60px;
   overflow: hidden;
-  margin-bottom: 80px;
-}
-@media (min-width: 960px) {
-  .hero {
-    margin-bottom: 120px;
-  }
 }
 .hero__title {
   position: absolute;
@@ -315,55 +308,7 @@
   transition: opacity 6s ease, transform 1s ease;
   z-index: 2;
 }
-.hero__footer {
-  position: absolute;
-  top: calc(100% - 110px);
-  left: 50%;
-  transform: translate(-50%, 0%);
-  width: 20px;
-  height: 82px;
-  color: #fff;
-  overflow: hidden;
-  z-index: 2;
-}
-@media (min-width: 960px) {
-  .hero__footer {
-    position: absolute;
-    top: calc(100% - 160px);
-    left: 50%;
-    transform: translate(-50%, 0%);
-  }
-}
-.hero__down-allow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 7px;
-  animation-name: kf-hero-allow-move;
-  animation-duration: 2s;
-  animation-timing-function: liner;
-  animation-delay: 0s;
-  animation-iteration-count: infinite;
-  animation-direction: normal;
-  animation-fill-mode: forwards;
-}
-.hero__scorll-text {
-  position: absolute;
-  top: 22px;
-  left: -6px;
-  transform: translate(0, 0);
-  font-size: 0.9rem;
-  transform: rotate(90deg);
-}
 
-@keyframes kf-hero-allow-move {
-  0%, 50%, 100% {
-    transform: translateY(-10px);
-  }
-  30% {
-    transform: translateY(0);
-  }
-}
 .animate-title,
 .gsap-animate-title {
   opacity: 0;
@@ -631,7 +576,7 @@ body {
   font-size: 100%;
 }
 
-.font-gothic, .instagram-app, .next-btn {
+.font-gothic, .instagram-app, .next-btn, section .inner-contents .lead-title {
   font-family: "Noto Sans JP", sans-serif;
   font-optical-sizing: auto;
   font-weight: 200;
@@ -650,21 +595,14 @@ body {
   font-weight: 400;
   font-style: normal;
 }
-.font-mincho__bld {
+.font-mincho__mid, section .section-sub-title, section .inner-contents .spec .price {
+  font-weight: 700;
+}
+.font-mincho__bld, section .inner-contents .section-sub-title {
   font-weight: 900;
 }
 
-.font-mincho {
-  font-family: "Noto Serif JP", serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-}
-.font-mincho__bld {
-  font-weight: 700;
-}
-
-.fude-moji, .header .logo .temple-info__name-name, .footer .logo .temple-info__name-name {
+.fude-moji, .header .temple-info__name-name, .footer .temple-info__name-name {
   font-family: "Yuji Syuku", serif;
   font-weight: 400;
   font-style: normal;
@@ -684,6 +622,15 @@ body {
 
 .tume, h2, h3 {
   font-feature-settings: "palt" 1;
+}
+
+.return-sm {
+  display: block;
+}
+@media (min-width: 600px) {
+  .return-sm {
+    display: none;
+  }
 }
 
 .h-one-hide {
@@ -731,12 +678,12 @@ a {
   }
 }
 
-.content-width, .header__inner, section {
+.content-width, .header__inner, section, .memorial-service__contents, .about-us__contents, .goshuin__contents {
   margin: 0 auto;
   max-width: 1080px;
 }
 @media (min-width: 600px) {
-  .content-width, .header__inner, section {
+  .content-width, .header__inner, section, .memorial-service__contents, .about-us__contents, .goshuin__contents {
     width: 90%;
   }
 }
@@ -807,6 +754,35 @@ a {
   z-index: 2;
 }
 
+.temple-info__tel {
+  display: block;
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  color: #333;
+  font-size: 1.5em;
+  line-height: 1;
+  z-index: 10;
+}
+@media (min-width: 600px) {
+  .temple-info__tel {
+    font-size: 32px;
+  }
+}
+.temple-info__tel::before {
+  content: "\f3cd";
+  font-size: inherit;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 0.25em;
+}
+.temple-info__tel:hover {
+  color: #666;
+  cursor: pointer;
+  transition: all 0.6s ease;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -833,22 +809,22 @@ a {
 .header .logo__img {
   width: 3em;
 }
-.header .logo .temple-info {
+.header .temple-info {
   color: #666;
 }
-.header .logo .temple-info__name {
+.header .temple-info__name {
   font-size: 13px;
   font-weight: 700;
 }
-.header .logo .temple-info__name-pre {
+.header .temple-info__name-pre {
   padding-top: 5px;
   text-align: justify;
   line-height: 1.2;
 }
-.header .logo .temple-info__sub-name {
+.header .temple-info__sub-name {
   font-size: 15px;
 }
-.header .logo .temple-info__name-name {
+.header .temple-info__name-name {
   font-size: 34px;
   line-height: 1;
   color: #853737;
@@ -895,6 +871,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   width: 100%;
   height: 100vh;
   padding-bottom: 30%;
@@ -933,7 +910,55 @@ a {
     opacity: 0.5;
   }
 }
+.main-visual__footer {
+  position: absolute;
+  top: calc(100% - 250px);
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 20px;
+  height: 82px;
+  color: #333;
+  overflow: hidden;
+  z-index: 2;
+}
+@media (min-width: 960px) {
+  .main-visual__footer {
+    position: absolute;
+    top: calc(100% - 160px);
+    left: 50%;
+    transform: translate(-50%, 0%);
+  }
+}
+.main-visual__down-allow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 7px;
+  animation-name: kf-hero-allow-move;
+  animation-duration: 2s;
+  animation-timing-function: liner;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+.main-visual__scorll-text {
+  position: absolute;
+  top: 22px;
+  left: -6px;
+  transform: translate(0, 0);
+  font-size: 0.9rem;
+  transform: rotate(90deg);
+}
 
+@keyframes kf-hero-allow-move {
+  0%, 50%, 100% {
+    transform: translateY(-10px);
+  }
+  30% {
+    transform: translateY(0);
+  }
+}
 section {
   padding: 8rem 2rem 3rem;
   overflow: hidden;
@@ -1011,8 +1036,17 @@ section .section-title::after {
 section .section-sub-title {
   margin: 2.5em 0 0.5em;
   text-align: center;
-  letter-spacing: 0.1em;
+  font-size: 1.25em;
+  letter-spacing: 0.07em;
   color: #333;
+}
+section .section-sub-title.contact {
+  margin: 1.5em 0 0.75em;
+}
+@media (min-width: 600px) {
+  section .section-sub-title {
+    font-size: 24px;
+  }
 }
 
 .instagram-app {
@@ -1067,7 +1101,39 @@ section .section-sub-title {
   color: inherit;
   opacity: 0.2;
 }
+.graveyard .inner-contents .caution__contents {
+  margin: 0.75em 0 1.5em;
+  padding: 0.5em 0;
+}
+.graveyard .inner-contents .caution__contents > li {
+  margin-top: 0;
+}
 
+.memorial-service {
+  position: relative;
+  width: 100%;
+  max-width: unset;
+}
+.memorial-service::before {
+  background-color: unset;
+  background-image: url("../images/memorial-service_bg@0.25x.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-clip: border-box;
+  color: inherit;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  content: "";
+  width: 100%;
+  height: 500px;
+}
+.memorial-service__contents {
+  padding-top: calc(500px - 5em);
+}
 .memorial-service .section-title::before {
   background-color: unset;
   background-image: url("../images/title-back-pattern-03.png");
@@ -1079,6 +1145,15 @@ section .section-sub-title {
   color: inherit;
 }
 
+.about-us {
+  position: relative;
+  width: 100%;
+  padding: 0;
+  max-width: unset;
+}
+.about-us__contents {
+  padding: 2em 2em 3em;
+}
 .about-us .section-title::before {
   background-color: unset;
   background-image: url("../images/title-back-pattern-04.png");
@@ -1091,13 +1166,56 @@ section .section-sub-title {
   opacity: 0.2;
 }
 
+.goshuin {
+  position: relative;
+  width: 100%;
+  max-width: unset;
+  background-color: #944545;
+}
+.goshuin::before {
+  background-color: unset;
+  background-image: url("../images/memorial-service_bg@0.25x.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-clip: border-box;
+  color: inherit;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  content: "";
+  width: 100%;
+  height: 500px;
+}
+.goshuin__contents {
+  padding-top: calc(500px - 5em);
+}
 .goshuin__contents > p:first-of-type {
-  margin-top: 3em;
+  margin-top: 2em;
+}
+.goshuin__contents .section-title, .goshuin__contents p {
+  color: white;
+}
+.goshuin .section-title::before {
+  background-color: unset;
+  background-image: url("../images/ji-mon_white.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-clip: border-box;
+  color: inherit;
+  top: -220%;
+  width: 550px;
+  height: 550px;
+  opacity: 0.075;
+}
+.goshuin .section-title::after {
+  background-image: unset;
 }
 
-.access {
-  padding-top: 6rem;
-}
 .access__contents > p:first-of-type {
   margin-top: 3em;
 }
@@ -1121,6 +1239,29 @@ section .section-sub-title {
     bottom: -405%;
   }
 }
+.access p {
+  line-height: 1.5;
+  text-align: center;
+}
+.access p.transportation {
+  position: relative;
+  margin-bottom: 0.5em;
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 500;
+  color: #333;
+}
+.access p.transportation > span {
+  position: absolute;
+  bottom: 2em;
+  right: 1em;
+  padding: 1em 1.25em;
+  line-height: 1.2;
+  text-align: center;
+  font-weight: 900;
+  border: 1px solid #853737;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+}
 .access__map {
   margin-bottom: 3rem;
 }
@@ -1140,6 +1281,118 @@ section p {
   font-weight: 900;
   color: white;
   background-color: #944545;
+}
+
+section .inner-contents {
+  display: flex;
+  flex-direction: column;
+  max-height: 0;
+  font-size: 14px;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.6s ease-in-out;
+}
+section .inner-contents.show {
+  max-height: 1500px;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+section .inner-contents.hide {
+  max-height: 0;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+section .inner-contents .section-sub-title {
+  margin: 1.5em 0 0;
+  letter-spacing: 0.25em;
+}
+section .inner-contents .section-sub-title::before {
+  content: "【";
+}
+section .inner-contents .section-sub-title::after {
+  content: "】";
+}
+section .inner-contents .spec {
+  margin: 1.5em 0 0.5em;
+}
+section .inner-contents .spec .price {
+  font-size: 1.2em;
+  line-height: 1;
+}
+@media (min-width: 600px) {
+  section .inner-contents .spec .price {
+    font-size: 20px;
+  }
+}
+section .inner-contents .spec .price > span {
+  font-size: 1.5em;
+}
+@media (min-width: 600px) {
+  section .inner-contents .spec .price > span {
+    font-size: 32px;
+  }
+}
+section .inner-contents .lead-title {
+  margin: 0 0 0.75em;
+  padding: 2.5px 0;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 900;
+  color: #666;
+  border: 1px solid #944545;
+}
+section .inner-contents .price {
+  margin-bottom: 0.25em;
+}
+section .inner-contents .caution {
+  margin: 1.5em 0 0.5em;
+}
+section .inner-contents .caution__contents {
+  padding: 1em 0;
+  text-align: justify;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #333;
+  border-radius: 0.5em;
+  background-color: rgba(249, 244, 170, 0.4);
+}
+section .inner-contents .caution__contents > li {
+  margin-top: 0.5em;
+  padding: 0 1em 0 2em;
+  text-indent: -1em;
+}
+section .inner-contents .caution__contents > li::before {
+  content: "●";
+  color: #853737;
+}
+section .inner-contents__img-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  margin-top: 1em;
+}
+section .inner-contents__img-wrapper > img {
+  width: 100%;
+  aspect-ratio: 3/2;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+section .inner-contents__img-wrapper-inner {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+section .inner-contents__img-wrapper-inner > img {
+  width: calc((100% - 0.5em) / 2);
+  aspect-ratio: 4/3;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .side {
@@ -1229,24 +1482,27 @@ section p {
 .footer .logo__img {
   width: 4.2em;
 }
-.footer .logo .temple-info__name {
+.footer .temple-info__name {
   font-size: 15px;
   font-weight: 700;
 }
-.footer .logo .temple-info__name-pre {
+.footer .temple-info__name-pre {
   text-align: justify;
   line-height: 1.2;
 }
-.footer .logo .temple-info__sub-name {
+.footer .temple-info__sub-name {
   font-size: 18px;
 }
-.footer .logo .temple-info__name-name {
+.footer .temple-info__name-name {
   padding-bottom: 6px;
   font-size: 42px;
   line-height: 1;
 }
 .footer .temple-info__tel {
+  display: inline-block;
+  margin: 0.25em 0 0.25em auto;
   font-size: 24px;
+  color: white;
 }
 .footer .temple-info:nth-of-type(2) {
   margin-top: 0.5em;
