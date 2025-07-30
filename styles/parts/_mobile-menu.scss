@@ -11,28 +11,8 @@
   // visibility: hidden;
   // opacity: 0;
 
-  .logo {
-    display: flex;
-    // justify-content: center;
-    align-items: center;
-    font-size: 32px;
-    padding-left: 40px;
-
-    @include mq(md) {
-      flex-direction: row;
-      justify-content: flex-start;
-    }
-
-    &__img {
-      width: 0.8em;
-    }
-
-    &__world {
-      color: $cTheme;
-    }
-  }  
-
   &__main {
+    margin-top: 2em;
     // 3Dアニメーション
     // 領域の奥側から広がってくる3Dアニメーションをかける。
     // そのための準備として親要素に仕込む属性。
@@ -51,11 +31,13 @@
   &__link {
     display: block;
     width: 100%;
-    margin-top: 30px;
-    padding: 0 10px;
-    & > .section-title {
-      color: $cBlack;
-    }
+    margin-top: 20px;
+    color: $cBlack;
+  }
+
+  &__title {
+    font-size: 18px;
+    letter-spacing: .1em;
   }
 
   &__cover {

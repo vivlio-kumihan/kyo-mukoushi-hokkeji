@@ -1,12 +1,16 @@
 @use "../globals" as *;
 
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
 body {
   // ページのheaderにリンクを貼って、CSSでフォントファミリーを指定する。
   // フォント・スタックで記述すること。
   // 英語の書体なら『Kameron』にマッチ、日本語の書体は、2番目の『Noto Sans JP』にマッチする。
   // 順に探していく仕様。
   font-family: "Noto Serif JP", serif;
-  font-size: 100%;
 }
 
 // wght@200;500;900

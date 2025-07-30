@@ -50,32 +50,8 @@
   }
 }
 
-.header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: $navHeight;
-  padding: 0 1em;
-  z-index: 100;
-  background-color: rgba($color: $cWhite, $alpha: 0.9);
-  // 水平方向のオフセット 垂直方向のオフセット ぼかし距離 スプレッド距離 色
-  box-shadow: 0 0 25px -10px rgba($color: $cBlack, $alpha: 1);
-
-  // &.triggered {
-  //   background-color: rgba($color: $cWhite, $alpha: 0.9);
-  //   // 水平方向のオフセット 垂直方向のオフセット ぼかし距離 スプレッド距離 色
-  //   box-shadow: 0 0 25px -10px rgba($color: $cBlack, $alpha: 1);
-  // }
-
-  &__inner {
-    @extend .content-width;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-  }
-
+.header,
+.mobile-menu {
   .logo {
     display: flex;
     justify-content: center;
@@ -107,6 +83,44 @@
       line-height: 1;
       color: $cTheme
     }
+  }  
+}
+
+.mobile-menu {
+  &__title.instagram {
+    &::before {
+      @include fontAwesome("\f16d", inherit, Brands, 900) {
+        margin-right: .25em
+      };
+    }
+  }
+}
+
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $navHeight;
+  padding: 0 1em;
+  z-index: 100;
+  background-color: rgba($color: $cWhite, $alpha: 0.9);
+  // 水平方向のオフセット 垂直方向のオフセット ぼかし距離 スプレッド距離 色
+  box-shadow: 0 0 25px -10px rgba($color: $cBlack, $alpha: 1);
+
+  // &.triggered {
+  //   background-color: rgba($color: $cWhite, $alpha: 0.9);
+  //   // 水平方向のオフセット 垂直方向のオフセット ぼかし距離 スプレッド距離 色
+  //   box-shadow: 0 0 25px -10px rgba($color: $cBlack, $alpha: 1);
+  // }
+
+  &__inner {
+    @extend .content-width;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
   }
 
   &__nav {
@@ -543,6 +557,7 @@ section {
   font-weight: 900;
   color: $cWhite;
   background-color: $cThemeMidium;
+  border-radius: 0 0 10px 10px;
 }
 
 section .inner-contents {
