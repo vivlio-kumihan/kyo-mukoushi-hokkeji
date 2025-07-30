@@ -39,13 +39,17 @@
 }
 
 .access {
-  padding: 8rem 2rem .5rem;
   & .temple-info {
     margin: .75em 0;
     text-align: center;
+    @include mq(md) {
+      margin: .75em 0 2 1.5em;
+
+    }
     &__adress {
       margin-top: .2em;
       font-size: 15px;
+      text-decoration: none;
     }
   }
 }
@@ -167,11 +171,16 @@
   height: 100vh;
   padding-bottom: 30%;
   overflow: hidden;
+  @include mq(md) {
+    max-width: unset;
+    padding-bottom: unset;
+  }
   & > .site-title {
     position: relative;
     width: 55px;
     @include mq(md) {
-      width: 80px;
+      width: 70px;
+      padding-bottom: 3rem;
     }
     &::after {
       position: absolute;
@@ -183,8 +192,10 @@
       opacity: .3;
       content: "";
       @include mq(md) {
-        transform: translate(-48%, -45%);
-        opacity: .5;
+        width: 500px;
+        height: 500px;
+        transform: translate(-48%, -55%);
+        opacity: .3;
       }
       @include bg(
         $image: "../images/circle_green.png",
@@ -194,6 +205,7 @@
       );
     }
   }
+
   &__footer {
     @include positionAlt(
       calc(100% - 125px), 
@@ -245,6 +257,10 @@ section {
   @extend .content-width;
   padding: 8rem 2rem 3rem;
   overflow: hidden;
+  @include mq(md) {
+    padding: 11rem 10rem 3rem;
+    background-color: rgba($color: $cWhite, $alpha: .6);
+  }
   & .section-title {
     @extend .font-lg;
     display: flex;
@@ -271,7 +287,7 @@ section {
         $size: cover,
         $repeat: no-repeat); 
       position: absolute;
-      bottom: -50%;
+      bottom: -10%;
       left: 50%;
       transform: translateX(-50%);
       content: "";
@@ -300,15 +316,16 @@ section {
       opacity: .5;
       z-index: -1;
       @include mq(md) {
-        bottom: -555%;
+        bottom: -360%;
         width: 640px;
         height: 640px;
+        background-image: url("../images/title-back-circle-grad.png");
       }
     }
   }  
   & .section-sub-title {
     @extend .font-mincho__mid;
-    margin: 2.5em 0 .5em;
+    margin: 1.25em 0 .5em;
     text-align: center;
     font-size: 1.25em;
     letter-spacing: .07em;
@@ -327,12 +344,14 @@ section {
   @extend .font-gothic;
   position: relative;
   padding: 0;
-  background-color: #f5f5f5;
+  // background-color: rgba($color: $cWhite, $alpha: .5);
   min-height: 100vh;
   @include mq(md) {
     margin: 0 auto;
-    padding: 15px;
+    padding-bottom: 2rem;
     max-width: 1080px;
+    min-height: unset;
+
   } 
 }
 /* logoを取り去る */
@@ -354,10 +373,17 @@ section {
 .eternal-memorial {
   &__contents {
     & > .section-title::before {
-      bottom: -20%
+      bottom: -20%;
+      @include mq(md) {
+        bottom: -5%;
+      }
     }
     & > .section-title::after {
-      bottom: -170%
+      bottom: -210%;
+      z-index: -1;
+      @include mq(md) {
+        bottom: -220%
+      }
     }
     & > .section-sub-title {
       margin: 2em 0 0.5em;
@@ -367,6 +393,10 @@ section {
 }
 
 .graveyard {
+  padding: 11rem 2rem 3rem;
+  @include mq(md) {
+    padding: 11rem 10rem 3rem;
+  }
   & .section-title::before {
     @include bg ($image: '../images/title-back-pattern-02.png');
     opacity: .2;
@@ -388,6 +418,19 @@ section {
   width: 100%;
   max-width: unset;
   padding: calc(500px + 3em) 2em 3em;
+  background-color: unset;
+  @include mq(md) {
+    padding: 0;
+  }
+  & .inner {
+    @include mq(md) {
+      margin: 0 auto;
+      max-width: $contentMaxWidth;
+      margin-top: 500px;
+      padding: 3em 10em 3em;
+      background-color: rgba($color: $cWhite, $alpha: .6);
+    }
+  }
   &::before {
     @include bg(
       $image: '../images/memorial-service_bg@0.25x.jpg',
@@ -401,17 +444,24 @@ section {
     width: 100%;
     height: 500px;
   }
-  &__contents {
-    @extend .content-width;
-  }
   & .section-title {
-    &__text {
+    @include mq(md) {
       display: block;
+      position: absolute;
+      top: calc(500px + 1em);
+      text-align: center;
+    }
+    &__text {
       height: 3.5em;
     }
   }  
   & .section-title::before {
     @include bg ($image: '../images/title-back-pattern-03.png');
+  }
+  & .section-sub-title {
+    @include mq(md) {
+      margin-top: 6.5em;
+    }
   }
 }
 
@@ -420,15 +470,36 @@ section {
   width: 100%;
   max-width: unset;
   padding: calc(500px + 3em) 2em 3em; 
-  z-index: 0; 
-  &__contents {
-    @extend .content-width;
-    position: relative;
-    z-index: 10;
+  background-color: unset;
+  z-index: 0;
+  @include mq(md) {
+    padding: 0
+  }
+  & .inner {
+    @include mq(md) {
+      margin: 0 auto;
+      max-width: $contentMaxWidth;
+      margin-top: 500px;
+      padding: 2em 10em 3em;
+      background-color: rgba($color: $cWhite, $alpha: .6)
+    }
   }
   & .section-title {
-    &__text {
+    @include mq(md) {
       display: block;
+      position: absolute;
+      top: calc(500px + 1em);
+      text-align: center
+    }
+  }
+  & .section-title {
+    @include mq(md) {
+      display: block;
+      position: absolute;
+      top: calc(500px + 1em);
+      text-align: center;
+    }    
+    &__text {
       height: 3.5em;
     }
   }
@@ -436,6 +507,11 @@ section {
     @include bg ($image: '../images/title-back-pattern-04.png');
     opacity: .2;
   }
+  & .section-sub-title {
+    @include mq(md) {
+      margin-top: 7.5em;
+    }
+  }  
 }
 
 .goshuin {
@@ -458,7 +534,7 @@ section {
   }  
   &__contents {
     @extend .content-width;
-    padding-top: calc(500px - 2em);   
+    padding-top: calc(500px - 5em);   
     & > p:first-of-type {
       margin-top: 2em;
     }
@@ -474,11 +550,11 @@ section {
     }
   }  
   & .section-title::before {
-    @include bg($image: "../images/ji-mon_white.png");
-    top: -220%;
-    width: 550px;
-    height: 550px;
-    opacity: .075;
+    @include bg($image: "../images/ji-mon_org@0.25x.png");
+    top: -250%;
+    width: 650px;
+    height: 650px;
+    opacity: .5;
   }
   & .section-title::after {
     background-image: unset;
@@ -486,6 +562,10 @@ section {
 }
 
 .access {
+  padding: 10rem 2rem .5rem;
+  @include mq(md) {
+    padding: 11rem 2rem .5rem;
+  }
   &__contents {
     & > p:first-of-type {
       margin-top: 3em;
@@ -495,11 +575,14 @@ section {
     @include bg ($image: '../images/title-back-pattern-05.png');
     bottom: -40%;
     opacity: .3;
+    @include mq(md) {
+      bottom: -10%;
+    }
   }
   & .section-title::after {
     bottom: -220%;
     @include mq(md) {
-      bottom: -405%;
+      bottom: -275%;
     }
   }
   & p {
@@ -507,10 +590,14 @@ section {
     text-align: center; 
     &.transportation {
       position: relative;
-      margin-bottom: .5em;
+      width: fit-content;
+      margin: 4.5em auto .5em;
       font-family: "Noto Sans JP", sans-serif;
       font-weight: 500;
       color: $cBlack;
+      @include mq(md) {
+        margin: 2em auto .5em;
+      }
       & > span {
         position: absolute;
         bottom: 2em;
@@ -522,6 +609,9 @@ section {
         border: 1px solid $cTheme;
         border-radius: 50%;
         background-color: rgba($cWhite, .3);
+        @include mq(md) {
+          right: -1em;
+        }
       }
     }
   }
@@ -541,14 +631,22 @@ section {
 
 section {
   & p {
+    position: relative;
+    z-index: 10;
     line-height: 1.7;
     text-align: justify;
     color: $cBlack;
+    @include mq(md) {
+      width: 512px;
+      margin: 0 auto
+    }
   }
 }
 
 .next-btn {
   @extend .font-gothic;
+  position: relative;
+  z-index: 10;
   margin: 1em 0;
   padding: 2.5px 0;
   text-align: center;
@@ -563,6 +661,8 @@ section {
 section .inner-contents {
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 10;
   max-height: 0;
   font-size: 14px;
   text-align: center;

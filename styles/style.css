@@ -259,11 +259,6 @@
 .swiper {
   overflow: visible !important;
 }
-@media (min-width: 960px) {
-  .swiper {
-    padding: 15px 0 50px;
-  }
-}
 
 .swiper-slide {
   height: 500px;
@@ -674,12 +669,12 @@ a {
   }
 }
 
-.content-width, .header__inner, section, .memorial-service__contents, .about-us__contents, .goshuin__contents {
+.content-width, .header__inner, section, .goshuin__contents {
   margin: 0 auto;
   max-width: 1080px;
 }
 @media (min-width: 600px) {
-  .content-width, .header__inner, section, .memorial-service__contents, .about-us__contents, .goshuin__contents {
+  .content-width, .header__inner, section, .goshuin__contents {
     width: 90%;
   }
 }
@@ -779,16 +774,19 @@ a {
   transition: all 0.6s ease;
 }
 
-.access {
-  padding: 8rem 2rem 0.5rem;
-}
 .access .temple-info {
   margin: 0.75em 0;
   text-align: center;
 }
+@media (min-width: 600px) {
+  .access .temple-info {
+    margin: 0.75em 0 2 1.5em;
+  }
+}
 .access .temple-info__adress {
   margin-top: 0.2em;
   font-size: 15px;
+  text-decoration: none;
 }
 
 .header .logo,
@@ -901,13 +899,20 @@ a {
   padding-bottom: 30%;
   overflow: hidden;
 }
+@media (min-width: 600px) {
+  .main-visual {
+    max-width: unset;
+    padding-bottom: unset;
+  }
+}
 .main-visual > .site-title {
   position: relative;
   width: 55px;
 }
 @media (min-width: 600px) {
   .main-visual > .site-title {
-    width: 80px;
+    width: 70px;
+    padding-bottom: 3rem;
   }
 }
 .main-visual > .site-title::after {
@@ -930,8 +935,10 @@ a {
 }
 @media (min-width: 600px) {
   .main-visual > .site-title::after {
-    transform: translate(-48%, -45%);
-    opacity: 0.5;
+    width: 500px;
+    height: 500px;
+    transform: translate(-48%, -55%);
+    opacity: 0.3;
   }
 }
 .main-visual__footer {
@@ -987,6 +994,12 @@ section {
   padding: 8rem 2rem 3rem;
   overflow: hidden;
 }
+@media (min-width: 600px) {
+  section {
+    padding: 11rem 10rem 3rem;
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+}
 section .section-title {
   display: flex;
   justify-content: center;
@@ -1016,7 +1029,7 @@ section .section-title::before {
   background-clip: border-box;
   color: inherit;
   position: absolute;
-  bottom: -50%;
+  bottom: -10%;
   left: 50%;
   transform: translateX(-50%);
   content: "";
@@ -1052,13 +1065,14 @@ section .section-title::after {
 }
 @media (min-width: 600px) {
   section .section-title::after {
-    bottom: -555%;
+    bottom: -360%;
     width: 640px;
     height: 640px;
+    background-image: url("../images/title-back-circle-grad.png");
   }
 }
 section .section-sub-title {
-  margin: 2.5em 0 0.5em;
+  margin: 1.25em 0 0.5em;
   text-align: center;
   font-size: 1.25em;
   letter-spacing: 0.07em;
@@ -1076,14 +1090,14 @@ section .section-sub-title.contact {
 .instagram-app {
   position: relative;
   padding: 0;
-  background-color: #f5f5f5;
   min-height: 100vh;
 }
 @media (min-width: 600px) {
   .instagram-app {
     margin: 0 auto;
-    padding: 15px;
+    padding-bottom: 2rem;
     max-width: 1080px;
+    min-height: unset;
   }
 }
 
@@ -1107,14 +1121,33 @@ section .section-sub-title.contact {
 .eternal-memorial__contents > .section-title::before {
   bottom: -20%;
 }
+@media (min-width: 600px) {
+  .eternal-memorial__contents > .section-title::before {
+    bottom: -5%;
+  }
+}
 .eternal-memorial__contents > .section-title::after {
-  bottom: -170%;
+  bottom: -210%;
+  z-index: -1;
+}
+@media (min-width: 600px) {
+  .eternal-memorial__contents > .section-title::after {
+    bottom: -220%;
+  }
 }
 .eternal-memorial__contents > .section-sub-title {
   margin: 2em 0 0.5em;
   letter-spacing: 0;
 }
 
+.graveyard {
+  padding: 11rem 2rem 3rem;
+}
+@media (min-width: 600px) {
+  .graveyard {
+    padding: 11rem 10rem 3rem;
+  }
+}
 .graveyard .section-title::before {
   background-color: unset;
   background-image: url("../images/title-back-pattern-02.png");
@@ -1139,6 +1172,21 @@ section .section-sub-title.contact {
   width: 100%;
   max-width: unset;
   padding: calc(500px + 3em) 2em 3em;
+  background-color: unset;
+}
+@media (min-width: 600px) {
+  .memorial-service {
+    padding: 0;
+  }
+}
+@media (min-width: 600px) {
+  .memorial-service .inner {
+    margin: 0 auto;
+    max-width: 1080px;
+    margin-top: 500px;
+    padding: 3em 10em 3em;
+    background-color: rgba(255, 255, 255, 0.6);
+  }
 }
 .memorial-service::before {
   background-color: unset;
@@ -1157,8 +1205,15 @@ section .section-sub-title.contact {
   width: 100%;
   height: 500px;
 }
+@media (min-width: 600px) {
+  .memorial-service .section-title {
+    display: block;
+    position: absolute;
+    top: calc(500px + 1em);
+    text-align: center;
+  }
+}
 .memorial-service .section-title__text {
-  display: block;
   height: 3.5em;
 }
 .memorial-service .section-title::before {
@@ -1171,20 +1226,51 @@ section .section-sub-title.contact {
   background-clip: border-box;
   color: inherit;
 }
+@media (min-width: 600px) {
+  .memorial-service .section-sub-title {
+    margin-top: 6.5em;
+  }
+}
 
 .about-us {
   position: relative;
   width: 100%;
   max-width: unset;
   padding: calc(500px + 3em) 2em 3em;
+  background-color: unset;
   z-index: 0;
 }
-.about-us__contents {
-  position: relative;
-  z-index: 10;
+@media (min-width: 600px) {
+  .about-us {
+    padding: 0;
+  }
+}
+@media (min-width: 600px) {
+  .about-us .inner {
+    margin: 0 auto;
+    max-width: 1080px;
+    margin-top: 500px;
+    padding: 2em 10em 3em;
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+}
+@media (min-width: 600px) {
+  .about-us .section-title {
+    display: block;
+    position: absolute;
+    top: calc(500px + 1em);
+    text-align: center;
+  }
+}
+@media (min-width: 600px) {
+  .about-us .section-title {
+    display: block;
+    position: absolute;
+    top: calc(500px + 1em);
+    text-align: center;
+  }
 }
 .about-us .section-title__text {
-  display: block;
   height: 3.5em;
 }
 .about-us .section-title::before {
@@ -1197,6 +1283,11 @@ section .section-sub-title.contact {
   background-clip: border-box;
   color: inherit;
   opacity: 0.2;
+}
+@media (min-width: 600px) {
+  .about-us .section-sub-title {
+    margin-top: 7.5em;
+  }
 }
 
 .goshuin {
@@ -1223,7 +1314,7 @@ section .section-sub-title.contact {
   height: 500px;
 }
 .goshuin__contents {
-  padding-top: calc(500px - 2em);
+  padding-top: calc(500px - 5em);
 }
 .goshuin__contents > p:first-of-type {
   margin-top: 2em;
@@ -1237,22 +1328,30 @@ section .section-sub-title.contact {
 }
 .goshuin .section-title::before {
   background-color: unset;
-  background-image: url("../images/ji-mon_white.png");
+  background-image: url("../images/ji-mon_org@0.25x.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-clip: border-box;
   color: inherit;
-  top: -220%;
-  width: 550px;
-  height: 550px;
-  opacity: 0.075;
+  top: -250%;
+  width: 650px;
+  height: 650px;
+  opacity: 0.5;
 }
 .goshuin .section-title::after {
   background-image: unset;
 }
 
+.access {
+  padding: 10rem 2rem 0.5rem;
+}
+@media (min-width: 600px) {
+  .access {
+    padding: 11rem 2rem 0.5rem;
+  }
+}
 .access__contents > p:first-of-type {
   margin-top: 3em;
 }
@@ -1268,12 +1367,17 @@ section .section-sub-title.contact {
   bottom: -40%;
   opacity: 0.3;
 }
+@media (min-width: 600px) {
+  .access .section-title::before {
+    bottom: -10%;
+  }
+}
 .access .section-title::after {
   bottom: -220%;
 }
 @media (min-width: 600px) {
   .access .section-title::after {
-    bottom: -405%;
+    bottom: -275%;
   }
 }
 .access p {
@@ -1282,10 +1386,17 @@ section .section-sub-title.contact {
 }
 .access p.transportation {
   position: relative;
-  margin-bottom: 0.5em;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 4.5em auto 0.5em;
   font-family: "Noto Sans JP", sans-serif;
   font-weight: 500;
   color: #333;
+}
+@media (min-width: 600px) {
+  .access p.transportation {
+    margin: 2em auto 0.5em;
+  }
 }
 .access p.transportation > span {
   position: absolute;
@@ -1299,17 +1410,32 @@ section .section-sub-title.contact {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.3);
 }
+@media (min-width: 600px) {
+  .access p.transportation > span {
+    right: -1em;
+  }
+}
 .access__map {
   margin-bottom: 3rem;
 }
 
 section p {
+  position: relative;
+  z-index: 10;
   line-height: 1.7;
   text-align: justify;
   color: #333;
 }
+@media (min-width: 600px) {
+  section p {
+    width: 512px;
+    margin: 0 auto;
+  }
+}
 
 .next-btn {
+  position: relative;
+  z-index: 10;
   margin: 1em 0;
   padding: 2.5px 0;
   text-align: center;
@@ -1324,6 +1450,8 @@ section p {
 section .inner-contents {
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 10;
   max-height: 0;
   font-size: 14px;
   text-align: center;
