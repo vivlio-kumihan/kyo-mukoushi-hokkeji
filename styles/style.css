@@ -261,7 +261,7 @@
 }
 
 .swiper-slide {
-  height: 500px;
+  height: 400px;
   overflow: hidden;
 }
 .swiper-slide > img {
@@ -295,7 +295,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  height: 500px;
+  height: 400px;
   overflow: hidden;
   z-index: -1;
 }
@@ -727,7 +727,7 @@ a {
 }
 @media (min-width: 960px) {
   .font-lg, section .section-title {
-    font-size: 36px;
+    font-size: 28px;
   }
 }
 
@@ -935,8 +935,8 @@ a {
 }
 @media (min-width: 600px) {
   .main-visual > .site-title::after {
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
     transform: translate(-48%, -55%);
     opacity: 0.3;
   }
@@ -1065,7 +1065,7 @@ section .section-title::after {
 }
 @media (min-width: 600px) {
   section .section-title::after {
-    bottom: -360%;
+    bottom: -480%;
     width: 640px;
     height: 640px;
     background-image: url("../images/title-back-circle-grad.png");
@@ -1083,7 +1083,7 @@ section .section-sub-title.contact {
 }
 @media (min-width: 600px) {
   section .section-sub-title {
-    font-size: 24px;
+    font-size: 20px;
   }
 }
 
@@ -1118,12 +1118,17 @@ section .section-sub-title.contact {
   border-color: #000000 !important;
 }
 
+@media (min-width: 600px) {
+  .eternal-memorial {
+    padding: 8rem 10rem 3rem;
+  }
+}
 .eternal-memorial__contents > .section-title::before {
   bottom: -20%;
 }
 @media (min-width: 600px) {
   .eternal-memorial__contents > .section-title::before {
-    bottom: -5%;
+    bottom: -15%;
   }
 }
 .eternal-memorial__contents > .section-title::after {
@@ -1132,7 +1137,7 @@ section .section-sub-title.contact {
 }
 @media (min-width: 600px) {
   .eternal-memorial__contents > .section-title::after {
-    bottom: -220%;
+    bottom: -280%;
   }
 }
 .eternal-memorial__contents > .section-sub-title {
@@ -1145,7 +1150,7 @@ section .section-sub-title.contact {
 }
 @media (min-width: 600px) {
   .graveyard {
-    padding: 11rem 10rem 3rem;
+    padding: 13rem 10rem 3rem;
   }
 }
 .graveyard .section-title::before {
@@ -1160,8 +1165,13 @@ section .section-sub-title.contact {
   opacity: 0.2;
 }
 .graveyard .inner-contents .caution__contents {
-  margin: 0.75em 0 1.5em;
+  margin-top: 0.75em;
   padding: 0.5em 0;
+}
+@media (min-width: 600px) {
+  .graveyard .inner-contents .caution__contents {
+    padding: 1.5em 3em;
+  }
 }
 .graveyard .inner-contents .caution__contents > li {
   margin-top: 0;
@@ -1171,7 +1181,7 @@ section .section-sub-title.contact {
   position: relative;
   width: 100%;
   max-width: unset;
-  padding: calc(500px + 3em) 2em 3em;
+  padding: calc(400px + 3em) 2em 3em;
   background-color: unset;
 }
 @media (min-width: 600px) {
@@ -1183,14 +1193,14 @@ section .section-sub-title.contact {
   .memorial-service .inner {
     margin: 0 auto;
     max-width: 1080px;
-    margin-top: 500px;
+    margin-top: 400px;
     padding: 3em 10em 3em;
     background-color: rgba(255, 255, 255, 0.6);
   }
 }
 .memorial-service::before {
   background-color: unset;
-  background-image: url("../images/memorial-service_bg@0.25x.jpg");
+  background-image: url("../images/_img_book-stand_1010850.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1203,13 +1213,13 @@ section .section-sub-title.contact {
   transform: translateX(-50%);
   content: "";
   width: 100%;
-  height: 500px;
+  height: 400px;
 }
 @media (min-width: 600px) {
   .memorial-service .section-title {
     display: block;
     position: absolute;
-    top: calc(500px + 1em);
+    top: calc(400px + 1em);
     text-align: center;
   }
 }
@@ -1236,7 +1246,7 @@ section .section-sub-title.contact {
   position: relative;
   width: 100%;
   max-width: unset;
-  padding: calc(500px + 3em) 2em 3em;
+  padding: calc(400px + 3em) 2em 3em;
   background-color: unset;
   z-index: 0;
 }
@@ -1249,7 +1259,7 @@ section .section-sub-title.contact {
   .about-us .inner {
     margin: 0 auto;
     max-width: 1080px;
-    margin-top: 500px;
+    margin-top: 400px;
     padding: 2em 10em 3em;
     background-color: rgba(255, 255, 255, 0.6);
   }
@@ -1258,7 +1268,7 @@ section .section-sub-title.contact {
   .about-us .section-title {
     display: block;
     position: absolute;
-    top: calc(500px + 1em);
+    top: calc(400px + 1em);
     text-align: center;
   }
 }
@@ -1266,7 +1276,7 @@ section .section-sub-title.contact {
   .about-us .section-title {
     display: block;
     position: absolute;
-    top: calc(500px + 1em);
+    top: calc(400px + 1em);
     text-align: center;
   }
 }
@@ -1298,7 +1308,7 @@ section .section-sub-title.contact {
 }
 .goshuin::before {
   background-color: unset;
-  background-image: url("../images/memorial-service_bg@0.25x.jpg");
+  background-image: url("../images/_img_butsu-dan_1010858.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1311,10 +1321,10 @@ section .section-sub-title.contact {
   transform: translateX(-50%);
   content: "";
   width: 100%;
-  height: 500px;
+  height: 400px;
 }
 .goshuin__contents {
-  padding-top: calc(500px - 5em);
+  padding-top: calc(400px - 5em);
 }
 .goshuin__contents > p:first-of-type {
   margin-top: 2em;
@@ -1349,7 +1359,7 @@ section .section-sub-title.contact {
 }
 @media (min-width: 600px) {
   .access {
-    padding: 11rem 2rem 0.5rem;
+    padding: 14rem 2rem 1.5rem;
   }
 }
 .access__contents > p:first-of-type {
@@ -1377,7 +1387,7 @@ section .section-sub-title.contact {
 }
 @media (min-width: 600px) {
   .access .section-title::after {
-    bottom: -275%;
+    bottom: -360%;
   }
 }
 .access p {
@@ -1461,7 +1471,7 @@ section .inner-contents {
   transition: all 0.6s ease-in-out;
 }
 section .inner-contents.show {
-  max-height: 1500px;
+  max-height: 2000px;
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
@@ -1472,8 +1482,11 @@ section .inner-contents.hide {
   opacity: 0;
   transform: translateY(-10px);
 }
+section .inner-contents__second {
+  margin-top: 4em;
+}
 section .inner-contents .section-sub-title {
-  margin: 1.5em 0 0;
+  margin-top: 1em;
   letter-spacing: 0.25em;
 }
 section .inner-contents .section-sub-title::before {
@@ -1528,8 +1541,15 @@ section .inner-contents .caution__contents {
   border-radius: 0.5em;
   background-color: rgba(249, 244, 170, 0.4);
 }
+@media (min-width: 600px) {
+  section .inner-contents .caution__contents {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 1.5em 3em;
+  }
+}
 section .inner-contents .caution__contents > li {
-  margin-top: 0.5em;
   padding: 0 1em 0 2em;
   text-indent: -1em;
 }
@@ -1543,22 +1563,44 @@ section .inner-contents__img-wrapper {
   gap: 0.5em;
   margin-top: 1em;
 }
+@media (min-width: 600px) {
+  section .inner-contents__img-wrapper {
+    flex-direction: row;
+  }
+}
 section .inner-contents__img-wrapper > img {
   width: 100%;
   aspect-ratio: 3/2;
   -o-object-fit: cover;
      object-fit: cover;
 }
+@media (min-width: 600px) {
+  section .inner-contents__img-wrapper > img {
+    width: calc((100% - 0.5em) / 2);
+  }
+}
 section .inner-contents__img-wrapper-inner {
   display: flex;
   flex-direction: row;
   gap: 0.5em;
 }
+@media (min-width: 600px) {
+  section .inner-contents__img-wrapper-inner {
+    flex-direction: column;
+    width: calc((100% - 0.5em) / 2);
+  }
+}
 section .inner-contents__img-wrapper-inner > img {
   width: calc((100% - 0.5em) / 2);
-  aspect-ratio: 4/3;
+  aspect-ratio: 3/2;
   -o-object-fit: cover;
      object-fit: cover;
+}
+@media (min-width: 600px) {
+  section .inner-contents__img-wrapper-inner > img {
+    width: 100%;
+    aspect-ratio: 3/2;
+  }
 }
 
 .side {

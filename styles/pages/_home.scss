@@ -192,8 +192,8 @@
       opacity: .3;
       content: "";
       @include mq(md) {
-        width: 500px;
-        height: 500px;
+        width: 400px;
+        height: 400px;
         transform: translate(-48%, -55%);
         opacity: .3;
       }
@@ -316,7 +316,7 @@ section {
       opacity: .5;
       z-index: -1;
       @include mq(md) {
-        bottom: -360%;
+        bottom: -480%;
         width: 640px;
         height: 640px;
         background-image: url("../images/title-back-circle-grad.png");
@@ -335,7 +335,7 @@ section {
       
     }
     @include mq(md) {
-      font-size: 24px;
+      font-size: 20px;
     }
   }
 }
@@ -371,18 +371,21 @@ section {
 }
 
 .eternal-memorial {
+  @include mq(md) {
+    padding: 8rem 10rem 3rem;
+  }
   &__contents {
     & > .section-title::before {
       bottom: -20%;
       @include mq(md) {
-        bottom: -5%;
+        bottom: -15%;
       }
     }
     & > .section-title::after {
       bottom: -210%;
       z-index: -1;
       @include mq(md) {
-        bottom: -220%
+        bottom: -280%
       }
     }
     & > .section-sub-title {
@@ -395,7 +398,7 @@ section {
 .graveyard {
   padding: 11rem 2rem 3rem;
   @include mq(md) {
-    padding: 11rem 10rem 3rem;
+    padding: 13rem 10rem 3rem;
   }
   & .section-title::before {
     @include bg ($image: '../images/title-back-pattern-02.png');
@@ -403,8 +406,11 @@ section {
   }
   & .inner-contents {
     & .caution__contents {
-      margin: .75em 0 1.5em;
+      margin-top: .75em;
       padding: .5em 0;
+      @include mq(md) {
+        padding: 1.5em 3em;
+      }
       & > li {
         margin-top: 0;
       }
@@ -417,7 +423,7 @@ section {
   position: relative;
   width: 100%;
   max-width: unset;
-  padding: calc(500px + 3em) 2em 3em;
+  padding: calc(400px + 3em) 2em 3em;
   background-color: unset;
   @include mq(md) {
     padding: 0;
@@ -426,14 +432,14 @@ section {
     @include mq(md) {
       margin: 0 auto;
       max-width: $contentMaxWidth;
-      margin-top: 500px;
+      margin-top: 400px;
       padding: 3em 10em 3em;
       background-color: rgba($color: $cWhite, $alpha: .6);
     }
   }
   &::before {
     @include bg(
-      $image: '../images/memorial-service_bg@0.25x.jpg',
+      $image: '../images/_img_book-stand_1010850.jpg',
       $repeat: no-repeat
     );
     position: absolute;
@@ -442,13 +448,13 @@ section {
     transform: translateX(-50%);
     content: "";
     width: 100%;
-    height: 500px;
+    height: 400px;
   }
   & .section-title {
     @include mq(md) {
       display: block;
       position: absolute;
-      top: calc(500px + 1em);
+      top: calc(400px + 1em);
       text-align: center;
     }
     &__text {
@@ -469,7 +475,7 @@ section {
   position: relative;
   width: 100%;
   max-width: unset;
-  padding: calc(500px + 3em) 2em 3em; 
+  padding: calc(400px + 3em) 2em 3em; 
   background-color: unset;
   z-index: 0;
   @include mq(md) {
@@ -479,7 +485,7 @@ section {
     @include mq(md) {
       margin: 0 auto;
       max-width: $contentMaxWidth;
-      margin-top: 500px;
+      margin-top: 400px;
       padding: 2em 10em 3em;
       background-color: rgba($color: $cWhite, $alpha: .6)
     }
@@ -488,7 +494,7 @@ section {
     @include mq(md) {
       display: block;
       position: absolute;
-      top: calc(500px + 1em);
+      top: calc(400px + 1em);
       text-align: center
     }
   }
@@ -496,7 +502,7 @@ section {
     @include mq(md) {
       display: block;
       position: absolute;
-      top: calc(500px + 1em);
+      top: calc(400px + 1em);
       text-align: center;
     }    
     &__text {
@@ -521,7 +527,7 @@ section {
   background-color: $cThemeMidium;
   &::before {
     @include bg(
-      $image: '../images/memorial-service_bg@0.25x.jpg',
+      $image: '../images/_img_butsu-dan_1010858.jpg',
       $repeat: no-repeat
     );
     position: absolute;
@@ -530,11 +536,11 @@ section {
     transform: translateX(-50%);
     content: "";
     width: 100%;
-    height: 500px;
+    height: 400px;
   }  
   &__contents {
     @extend .content-width;
-    padding-top: calc(500px - 5em);   
+    padding-top: calc(400px - 5em);   
     & > p:first-of-type {
       margin-top: 2em;
     }
@@ -564,7 +570,7 @@ section {
 .access {
   padding: 10rem 2rem .5rem;
   @include mq(md) {
-    padding: 11rem 2rem .5rem;
+    padding: 14rem 2rem 1.5rem;
   }
   &__contents {
     & > p:first-of-type {
@@ -582,7 +588,7 @@ section {
   & .section-title::after {
     bottom: -220%;
     @include mq(md) {
-      bottom: -275%;
+      bottom: -360%;
     }
   }
   & p {
@@ -671,7 +677,7 @@ section .inner-contents {
   transform: translateY(-10px);
   transition: all .6s ease-in-out;
   &.show {
-    max-height: 1500px;
+    max-height: 2000px;
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
@@ -682,9 +688,12 @@ section .inner-contents {
     opacity: 0;
     transform: translateY(-10px)
   }  
+  &__second {
+    margin-top: 4em
+  }
   & .section-sub-title {
     @extend .font-mincho__bld;
-    margin: 1.5em 0 0;
+    margin-top: 1em;
     letter-spacing: .25em;
     &::before {
       content: "【";
@@ -735,8 +744,12 @@ section .inner-contents {
       color: $cBlack;
       border-radius: .5em;
       background-color: rgba($cYellow, 0.4);
+      @include mq(md) {
+        width: fit-content;
+        margin: 0 auto;
+        padding: 1.5em 3em;
+      }
       & > li {
-        margin-top: .5em;
         padding: 0 1em 0 2em;
         text-indent: -1em;
         &::before {
@@ -751,20 +764,34 @@ section .inner-contents {
     flex-direction: column;
     gap: .5em;
     margin-top: 1em;
+    @include mq(md) {
+      flex-direction: row;
+    }
     & > img {
       width: 100%;
       aspect-ratio: 3 / 2;
       object-fit: cover;
+      @include mq(md) {
+        width: calc((100% - .5em) / 2);
+      }
     }
   }
   &__img-wrapper-inner {
     display: flex;
     flex-direction: row;
     gap: .5em;
+    @include mq(md) {
+      flex-direction: column;
+      width: calc((100% - .5em) / 2);
+    }
     & > img {
       width: calc((100% - .5em) / 2);
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 3 / 2;
       object-fit: cover;
+      @include mq(md) {
+        width: 100%;
+        aspect-ratio: 3 / 2;
+      }
     }
   }
 }
