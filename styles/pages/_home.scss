@@ -173,6 +173,7 @@
   overflow: hidden;
   @include mq(md) {
     max-width: unset;
+    padding: unset;
     padding-bottom: unset;
   }
   & > .site-title {
@@ -220,7 +221,7 @@
     z-index: 2;
     @include mq(lg) {
       @include positionAlt(
-        calc(100% - 160px), 
+        calc(100% - 120px), 
         50%, 
         -50%, 
         0%

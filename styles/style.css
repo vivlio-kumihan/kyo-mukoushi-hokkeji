@@ -902,6 +902,7 @@ a {
 @media (min-width: 600px) {
   .main-visual {
     max-width: unset;
+    padding: unset;
     padding-bottom: unset;
   }
 }
@@ -955,7 +956,7 @@ a {
 @media (min-width: 960px) {
   .main-visual__footer {
     position: absolute;
-    top: calc(100% - 160px);
+    top: calc(100% - 120px);
     left: 50%;
     transform: translate(-50%, 0%);
   }
